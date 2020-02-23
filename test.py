@@ -17,6 +17,11 @@ from sklearn.model_selection import GroupKFold
 import xgboost
 import datetime
 sys.path.append('..')
+# plot
+import matplotlib.pyplot as plt
+plt.rcParams['savefig.dpi'] = 300 #图片像素
+plt.rcParams['figure.dpi'] = 300 #分辨率
+
 # myself libs
 from read_data import read_data_csv, read_data_pkl
 # other
@@ -27,33 +32,16 @@ pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
 
 data_path = r'D:\kaggle\data\tianchi_disk\a'[: -1]
+pic_path = r'picture\a'[: -1]
 print 'data_path :', data_path
-
-def read_data():
-    read_rows = int(sys.argv[1])
-    if read_rows > 0:
-        return read_data_csv('disk_sample_smart_log_201803', read_rows)
-    data_pre_name = 'disk_sample_smart_log_'
-    df = read_data_csv(data_pre_name + '201707')
-    print '201701', df.shape
-    for day in range(201708, 201713) + range(201801, 201808):
-        df_temp = read_data_csv(data_pre_name + str(day), -1)
-        df = pd.concat([df, df_temp])
-        print day, df.shape
-    return df
-
-def data_process(df):
-    temp = []
-    for col in df.columns.values:
-        temp.append([df[col].isna().sum() * 1.0 / len(df), col])
-    temp = sorted(temp, reverse = True)
-    for x in temp:
-        print x[0], x[1]
-    pass
+print 'pic_path :', pic_path
 
 def main():
-    df = read_data()
-    data_process(df)
-    pass
+    x = np.random.rand(10)
+    print x
+    print x * 10
+    plt.hist(x, bins = 10)
+    plt.savefig(pic_path + 'test3.png')
+
 
 main()
