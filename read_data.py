@@ -43,7 +43,7 @@ def check_data():
     pass
 
 def main():
-    check_data()
+    pass
+    # check_data()
 
-if __name__ == '__main__':
-    main()
+main()
