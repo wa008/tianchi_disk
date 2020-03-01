@@ -34,21 +34,20 @@ def take_sample():
     read_rows = int(sys.argv[1])
     data_pre_name = 'disk_sample_smart_log_'
     df_label = pd.read_csv(data_path + 'disk_sample_fault_tag.csv', names = ['manufacturer', 'model', 'serial_number', 'fault_time', 'tag'])
-    df_label = df_label.drop_duplicates()
-    for col in ['manufacturer', 'model', 'serial_number']: df_label[col] = df_label[col].astype(str)
+    df_label = df_label.groupby(['manufacturer', 'model', 'serial_number'])['fault_time'].min().to_frame().reset_index()
     print df_label.head(3)
+    for col in ['manufacturer', 'model', 'serial_number']: df_label[col] = df_label[col].astype(str)
     for day in range(201707, 201713) + range(201801, 201808):
         # if day != 201807: continue
         df = read_data_csv(data_pre_name + str(day), read_rows)
         cnt = df.shape
         for col in ['manufacturer', 'model', 'serial_number']: df[col] = df[col].astype(str)
         df = df.merge(df_label, on = ['manufacturer', 'model', 'serial_number'], how = 'left')
-        df_positive = df[~df['tag'].isna()]
-        df = df.sample(frac = 0.1, random_state = 2020)
-        df_negative = df[df['tag'].isna()]
-        df_negative = df_negative.sample(n = len(df_positive) * 5, random_state = 2020)
-        df = pd.concat([df_positive, df_negative])
-        df.to_csv(data_path + data_pre_name + str(day) + '_sample_pn.csv', index = False)
+        df_positive = df[~df['fault_time'].isna()]
+        df = df[df['fault_time'].isna()]
+        df.sample(n = len(df_positive) * 10, random_state = 2020, replace = True)
+        df = pd.concat([df_positive, df])
+        df.to_csv(data_path + data_pre_name + str(day) + '_sample_pn_v2.csv', index = False)
         print day, cnt, len(df_positive), len(df)
     return df
 
@@ -143,23 +142,23 @@ def select_fea(df_train, weight, label, cols, df_test = 0):
             pre_cols.remove(col)
             df_result = train(df_train, weight, label, df_test, pre_cols, params)
             df_result[['manufacturer', 'model', 'serial_number', 'dt']].to_csv(data_path + 'sub_20200301_1.csv', index = False, header = False)
+        break
     params, best_score = val_lgb(df_train, weight, label, cols)
     print 'cols change : ', len(cols), len(pre_cols)
-    print 'pre_cols :', pre_cols
     print 'score :', best_score
     return pre_cols, params
 
 def main():
     pre_time = time.time()
-    # take_sample()    
-    # df_train, df_test = read_data()
-    # print 'df_train.shape, df_test.shap : ', df_train.shape, df_test.shape
-    df_train, df_test, weight, label = get_weight_label_data()
+    take_sample()
+    df_train, df_test = read_data()
+    print 'df_train.shape, df_test.shap : ', df_train.shape, df_test.shape
+    # df_train, df_test, weight, label = get_weight_label_data()
     cols = df_test.columns.tolist()
     key_cols = ['manufacturer', 'model', 'serial_number', 'dt']
     for col in key_cols:
         if col in cols: cols.remove(col)
-    # df_train, df_test, weight, label = get_weight_label(df_train, df_test)
+    df_train, df_test, weight, label = get_weight_label(df_train, df_test)
     print 'sum of weight : %d' % np.sum(weight)
     print 'sepend time : ', time.time() - pre_time
     print 'label.unique', Counter(label.tolist())
@@ -170,8 +169,12 @@ def main():
     # df_result = train(df_train, df_test, cols, weight, label)
     cols, best_params = select_fea(df_train, weight, label, cols, df_test)
 
+    write_data_csv('df_train_result', df_train)
+    write_data_csv('df_test_result', df_test)
+    print 'result cols : ', cols
+
     df_result = train(df_train, weight, label, df_test, cols, best_params)
-    df_result[['manufacturer', 'model', 'serial_number', 'dt']].to_csv(data_path + 'sub_20200301_1.csv', index = False, header = False)
+    df_result[['manufacturer', 'model', 'serial_number', 'dt']].to_csv(data_path + 'sub_20200301_2.csv', index = False, header = False)
     pass
     print 'sepend time : ', time.time() - pre_time
 
