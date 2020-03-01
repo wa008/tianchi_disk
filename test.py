@@ -44,4 +44,4 @@ def main():
     plt.savefig(pic_path + 'test3.png')
 
 
-main()
+# main()

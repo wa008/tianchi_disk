@@ -10,7 +10,7 @@ from tqdm import tqdm
 # machine learning
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.ensemble import GradientBoostingRegressor
-from sklearn.preprocessing import OneHotEncoder, LabelEncoder
+from sklearn.preprocessing import OneHotEncoder, LabelEncoder, StandardScaler
 from sklearn.metrics import mean_absolute_error, roc_auc_score
 from collections import Counter
 from sklearn.model_selection import GroupKFold
@@ -20,6 +20,7 @@ import datetime
 sys.path.append('..')
 # myself libs
 from read_data import read_data_csv, read_data_pkl
+from validation import val_lgb
 # other
 pd.set_option('display.max_columns', None)
 import warnings
@@ -75,8 +76,8 @@ def get_weight_label(df_train, df_test):
     df_train['dis_day'] = (df_train['broken_day'] - df_train['dt_day']).apply(lambda x: -1 if x < 0 else -1 if x >= 30 else x)
     # print df_train[df_train['dt'] == 20170709][['dt', 'fault_time', 'broken_day', 'dt_day', 'dis_day']].head(10)
     df_train['label'] = df_train['dis_day'].apply(lambda x: 1 if x != -1 else 0)
-    weight = df_train['dis_day'].apply(lambda x: 1 if x == -1 else 30 - x).values
-    label = df_train['label'].values
+    weight = df_train['dis_day'].apply(lambda x: 1 if x == -1 else 30 - x)
+    label = df_train['label']
     return df_train, df_test, weight, label
 
 def data_process(df_train, df_test, cols, col_ratio = 0.6):
@@ -101,6 +102,13 @@ def data_process(df_train, df_test, cols, col_ratio = 0.6):
     for col in cols:
         df[col] = df[col].astype(np.float64)
         df[col] = df[col].fillna(df[col].mean())
+    stand = StandardScaler() # normalize
+    datas = df[cols].values
+    print 'before stand', type(datas)
+    print datas.shape
+    datas = stand.fit_transform(datas)
+    df_tmp = pd.DataFrame(datas, columns = cols)
+    df = pd.concat([df.drop(cols, axis = 1).reset_index(drop = True), df_tmp], axis = 1)
 
     df_train = df.iloc[: len(df_train), :]   
     df_test = df.iloc[len(df_train) : , :]   
@@ -109,6 +117,7 @@ def data_process(df_train, df_test, cols, col_ratio = 0.6):
 def train(df_train, df_test, cols, weight, label):
     print '\ntrain' + '-' * 100
     print Counter(list(label))
+
     lgbm = lgb.LGBMClassifier()
     lgbm.fit(X = df_train[cols], y = label, sample_weight = weight)
     pred = lgbm.predict(df_test[cols])
@@ -130,13 +139,17 @@ def main():
 
     df_train = df_train[key_cols + cols]
     df_test = df_test[key_cols + cols]
+    df_train, df_test, cols = data_process(df_trian, df_test, cols, col_ratio = 0.6)
+    # df_result = train(df_train, df_test, cols, weight, label)
+    print 'label.unique', Counter(label.tolist())
+    pred = val_lgb(df_train, label, df_test, cols)
+    df_result = df_test
+    df_result['pred'] = pred
 
-
-    df_trian, df_test, cols = data_process(df_trian, df_test, cols, col_ratio = 0.6)
-    df_result = train(df_trian, df_test, cols, weight, label)
+    print 'result :', len(df_result), Counter(df_result['pred'].tolist())
     df_result = df_result[df_result['pred'] == 1]
     df_result['dt'] = df_result['dt'].apply(lambda x: time.strftime('%Y-%m-%d', time.strptime(str(x), '%Y%m%d')))
-    df_result[['manufacturer', 'model', 'serial_number', 'dt']].to_csv(data_path + 'sub_20200229.csv', index = False, header = False)
+    df_result[['manufacturer', 'model', 'serial_number', 'dt']].to_csv(data_path + 'sub_20200229_3.csv', index = False, header = False)
     pass
     print 'sepend time : ', time.time() - pre_time
 

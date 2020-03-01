@@ -1,0 +1,19 @@
+un ################
+
+params =
+
+{
+    'subsample': '0.60', 'reg_alpha': '0.099', 'reg_lambda': '0.052', 'colsample_bytree': '0.522', 'num_leaves': '150', 'learning_rate': '0.126', 'min_child_samples': '150', 'bagging_fraction': '0.529', 'max_dept
+    
+    h': 19, 'feature_fraction': '0.429'}
+    
+     98%|  | 49/50 [2:12:25<02:35, 155.29s/it, best loss: -0.288657889726] Mean f1_score :                                                                                                                                                                                                  0.2515882803496522
+     
+      98%|  | 49/50 [2:14:53<02:35, 155.29s/it, best loss: -0.288657889726] 100%|| 50/50 [2:14:53<00:00, 153.32s/it, best loss: -0.288657889726]
+      
+      result : 178096 Counter({
+          0L: 177613, 1L: 483})
+
+      sepend time :  8346.96300006
+      })''''''''''''''''''''''''''''''''''''''
+}
