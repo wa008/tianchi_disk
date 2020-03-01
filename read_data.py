@@ -19,12 +19,15 @@ def read_data_pkl(data_name):
     df = pd.read_pickle(data_path + data_name + '.pkl')
     return df
 
-def read_data_csv(data_name, mark = 100):
+def read_data_csv(data_name, mark = -1):
     if mark < 0:
         df = pd.read_csv(data_path + data_name + '.csv')
     else:
         df = pd.read_csv(data_path + data_name + '.csv', nrows = mark)
     return df
+
+def write_data_csv(data_name, df):
+    df.to_csv(data_path + data_name + '.csv')
 
 def check_data():
     begin_time = time.time()

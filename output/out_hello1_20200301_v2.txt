@@ -1,0 +1,766 @@
+test.py
+[1, 2, 23]
+[2, 23]
+data_path : D:\kaggle\data\tianchi_disk\
+data_path : D:\kaggle\data\tianchi_disk\
+sum of weight : 1648236
+sepend time :  49.3350000381
+label.unique Counter({0L: 1198787, 1L: 29287})
+
+data_process ----------------------------------------------------------------------------------------------------
+Unnamed: 0	0.00000
+smart_1_normalized	0.00006
+smart_1raw	0.00006
+smart_2_normalized	1.00000
+smart_2raw	1.00000
+smart_3_normalized	0.00005
+smart_3raw	0.00005
+smart_4_normalized	0.00005
+smart_4raw	0.00005
+smart_5_normalized	0.00006
+smart_5raw	0.00006
+smart_6_normalized	1.00000
+smart_6raw	1.00000
+smart_7_normalized	0.00006
+smart_7raw	0.00006
+smart_8_normalized	1.00000
+smart_8raw	1.00000
+smart_9_normalized	0.00006
+smart_9raw	0.00006
+smart_10_normalized	0.00006
+smart_10raw	0.00006
+smart_11_normalized	1.00000
+smart_11raw	1.00000
+smart_12_normalized	0.00007
+smart_12raw	0.00007
+smart_13_normalized	1.00000
+smart_13raw	1.00000
+smart_14_normalized	1.00000
+smart_14raw	1.00000
+smart_15_normalized	1.00000
+smart_15raw	1.00000
+smart_16_normalized	1.00000
+smart_16raw	1.00000
+smart_17_normalized	1.00000
+smart_17raw	1.00000
+smart_18_normalized	1.00000
+smart_18raw	1.00000
+smart_19_normalized	1.00000
+smart_19raw	1.00000
+smart_20_normalized	1.00000
+smart_20raw	1.00000
+smart_21_normalized	1.00000
+smart_21raw	1.00000
+smart_22_normalized	1.00000
+smart_22raw	1.00000
+smart_23_normalized	1.00000
+smart_23raw	1.00000
+smart_24_normalized	1.00000
+smart_24raw	1.00000
+smart_25_normalized	1.00000
+smart_25raw	1.00000
+smart_26_normalized	1.00000
+smart_26raw	1.00000
+smart_27_normalized	1.00000
+smart_27raw	1.00000
+smart_28_normalized	1.00000
+smart_28raw	1.00000
+smart_29_normalized	1.00000
+smart_29raw	1.00000
+smart_30_normalized	1.00000
+smart_30raw	1.00000
+smart_31_normalized	1.00000
+smart_31raw	1.00000
+smart_32_normalized	1.00000
+smart_32raw	1.00000
+smart_33_normalized	1.00000
+smart_33raw	1.00000
+smart_34_normalized	1.00000
+smart_34raw	1.00000
+smart_35_normalized	1.00000
+smart_35raw	1.00000
+smart_36_normalized	1.00000
+smart_36raw	1.00000
+smart_37_normalized	1.00000
+smart_37raw	1.00000
+smart_38_normalized	1.00000
+smart_38raw	1.00000
+smart_39_normalized	1.00000
+smart_39raw	1.00000
+smart_40_normalized	1.00000
+smart_40raw	1.00000
+smart_41_normalized	1.00000
+smart_41raw	1.00000
+smart_42_normalized	1.00000
+smart_42raw	1.00000
+smart_43_normalized	1.00000
+smart_43raw	1.00000
+smart_44_normalized	1.00000
+smart_44raw	1.00000
+smart_45_normalized	1.00000
+smart_45raw	1.00000
+smart_46_normalized	1.00000
+smart_46raw	1.00000
+smart_47_normalized	1.00000
+smart_47raw	1.00000
+smart_48_normalized	1.00000
+smart_48raw	1.00000
+smart_49_normalized	1.00000
+smart_49raw	1.00000
+smart_50_normalized	1.00000
+smart_50raw	1.00000
+smart_51_normalized	1.00000
+smart_51raw	1.00000
+smart_52_normalized	1.00000
+smart_52raw	1.00000
+smart_53_normalized	1.00000
+smart_53raw	1.00000
+smart_54_normalized	1.00000
+smart_54raw	1.00000
+smart_55_normalized	1.00000
+smart_55raw	1.00000
+smart_56_normalized	1.00000
+smart_56raw	1.00000
+smart_57_normalized	1.00000
+smart_57raw	1.00000
+smart_58_normalized	1.00000
+smart_58raw	1.00000
+smart_59_normalized	1.00000
+smart_59raw	1.00000
+smart_60_normalized	1.00000
+smart_60raw	1.00000
+smart_61_normalized	1.00000
+smart_61raw	1.00000
+smart_62_normalized	1.00000
+smart_62raw	1.00000
+smart_63_normalized	1.00000
+smart_63raw	1.00000
+smart_64_normalized	1.00000
+smart_64raw	1.00000
+smart_65_normalized	1.00000
+smart_65raw	1.00000
+smart_66_normalized	1.00000
+smart_66raw	1.00000
+smart_67_normalized	1.00000
+smart_67raw	1.00000
+smart_68_normalized	1.00000
+smart_68raw	1.00000
+smart_69_normalized	1.00000
+smart_69raw	1.00000
+smart_70_normalized	1.00000
+smart_70raw	1.00000
+smart_71_normalized	1.00000
+smart_71raw	1.00000
+smart_72_normalized	1.00000
+smart_72raw	1.00000
+smart_73_normalized	1.00000
+smart_73raw	1.00000
+smart_74_normalized	1.00000
+smart_74raw	1.00000
+smart_75_normalized	1.00000
+smart_75raw	1.00000
+smart_76_normalized	1.00000
+smart_76raw	1.00000
+smart_77_normalized	1.00000
+smart_77raw	1.00000
+smart_78_normalized	1.00000
+smart_78raw	1.00000
+smart_79_normalized	1.00000
+smart_79raw	1.00000
+smart_80_normalized	1.00000
+smart_80raw	1.00000
+smart_81_normalized	1.00000
+smart_81raw	1.00000
+smart_82_normalized	1.00000
+smart_82raw	1.00000
+smart_83_normalized	1.00000
+smart_83raw	1.00000
+smart_84_normalized	1.00000
+smart_84raw	1.00000
+smart_85_normalized	1.00000
+smart_85raw	1.00000
+smart_86_normalized	1.00000
+smart_86raw	1.00000
+smart_87_normalized	1.00000
+smart_87raw	1.00000
+smart_88_normalized	1.00000
+smart_88raw	1.00000
+smart_89_normalized	1.00000
+smart_89raw	1.00000
+smart_90_normalized	1.00000
+smart_90raw	1.00000
+smart_91_normalized	1.00000
+smart_91raw	1.00000
+smart_92_normalized	1.00000
+smart_92raw	1.00000
+smart_93_normalized	1.00000
+smart_93raw	1.00000
+smart_94_normalized	1.00000
+smart_94raw	1.00000
+smart_95_normalized	1.00000
+smart_95raw	1.00000
+smart_96_normalized	1.00000
+smart_96raw	1.00000
+smart_97_normalized	1.00000
+smart_97raw	1.00000
+smart_98_normalized	1.00000
+smart_98raw	1.00000
+smart_99_normalized	1.00000
+smart_99raw	1.00000
+smart_100_normalized	1.00000
+smart_100raw	1.00000
+smart_101_normalized	1.00000
+smart_101raw	1.00000
+smart_102_normalized	1.00000
+smart_102raw	1.00000
+smart_103_normalized	1.00000
+smart_103raw	1.00000
+smart_104_normalized	1.00000
+smart_104raw	1.00000
+smart_105_normalized	1.00000
+smart_105raw	1.00000
+smart_106_normalized	1.00000
+smart_106raw	1.00000
+smart_107_normalized	1.00000
+smart_107raw	1.00000
+smart_108_normalized	1.00000
+smart_108raw	1.00000
+smart_109_normalized	1.00000
+smart_109raw	1.00000
+smart_110_normalized	1.00000
+smart_110raw	1.00000
+smart_111_normalized	1.00000
+smart_111raw	1.00000
+smart_112_normalized	1.00000
+smart_112raw	1.00000
+smart_113_normalized	1.00000
+smart_113raw	1.00000
+smart_114_normalized	1.00000
+smart_114raw	1.00000
+smart_115_normalized	1.00000
+smart_115raw	1.00000
+smart_116_normalized	1.00000
+smart_116raw	1.00000
+smart_117_normalized	1.00000
+smart_117raw	1.00000
+smart_118_normalized	1.00000
+smart_118raw	1.00000
+smart_119_normalized	1.00000
+smart_119raw	1.00000
+smart_120_normalized	1.00000
+smart_120raw	1.00000
+smart_121_normalized	1.00000
+smart_121raw	1.00000
+smart_122_normalized	1.00000
+smart_122raw	1.00000
+smart_123_normalized	1.00000
+smart_123raw	1.00000
+smart_124_normalized	1.00000
+smart_124raw	1.00000
+smart_125_normalized	1.00000
+smart_125raw	1.00000
+smart_126_normalized	1.00000
+smart_126raw	1.00000
+smart_127_normalized	1.00000
+smart_127raw	1.00000
+smart_128_normalized	1.00000
+smart_128raw	1.00000
+smart_129_normalized	1.00000
+smart_129raw	1.00000
+smart_130_normalized	1.00000
+smart_130raw	1.00000
+smart_131_normalized	1.00000
+smart_131raw	1.00000
+smart_132_normalized	1.00000
+smart_132raw	1.00000
+smart_133_normalized	1.00000
+smart_133raw	1.00000
+smart_134_normalized	1.00000
+smart_134raw	1.00000
+smart_135_normalized	1.00000
+smart_135raw	1.00000
+smart_136_normalized	1.00000
+smart_136raw	1.00000
+smart_137_normalized	1.00000
+smart_137raw	1.00000
+smart_138_normalized	1.00000
+smart_138raw	1.00000
+smart_139_normalized	1.00000
+smart_139raw	1.00000
+smart_140_normalized	1.00000
+smart_140raw	1.00000
+smart_141_normalized	1.00000
+smart_141raw	1.00000
+smart_142_normalized	1.00000
+smart_142raw	1.00000
+smart_143_normalized	1.00000
+smart_143raw	1.00000
+smart_144_normalized	1.00000
+smart_144raw	1.00000
+smart_145_normalized	1.00000
+smart_145raw	1.00000
+smart_146_normalized	1.00000
+smart_146raw	1.00000
+smart_147_normalized	1.00000
+smart_147raw	1.00000
+smart_148_normalized	1.00000
+smart_148raw	1.00000
+smart_149_normalized	1.00000
+smart_149raw	1.00000
+smart_150_normalized	1.00000
+smart_150raw	1.00000
+smart_151_normalized	1.00000
+smart_151raw	1.00000
+smart_152_normalized	1.00000
+smart_152raw	1.00000
+smart_153_normalized	1.00000
+smart_153raw	1.00000
+smart_154_normalized	1.00000
+smart_154raw	1.00000
+smart_155_normalized	1.00000
+smart_155raw	1.00000
+smart_156_normalized	1.00000
+smart_156raw	1.00000
+smart_157_normalized	1.00000
+smart_157raw	1.00000
+smart_158_normalized	1.00000
+smart_158raw	1.00000
+smart_159_normalized	1.00000
+smart_159raw	1.00000
+smart_160_normalized	1.00000
+smart_160raw	1.00000
+smart_161_normalized	1.00000
+smart_161raw	1.00000
+smart_162_normalized	1.00000
+smart_162raw	1.00000
+smart_163_normalized	1.00000
+smart_163raw	1.00000
+smart_164_normalized	1.00000
+smart_164raw	1.00000
+smart_165_normalized	1.00000
+smart_165raw	1.00000
+smart_166_normalized	1.00000
+smart_166raw	1.00000
+smart_167_normalized	1.00000
+smart_167raw	1.00000
+smart_168_normalized	1.00000
+smart_168raw	1.00000
+smart_169_normalized	1.00000
+smart_169raw	1.00000
+smart_170_normalized	1.00000
+smart_170raw	1.00000
+smart_171_normalized	1.00000
+smart_171raw	1.00000
+smart_172_normalized	1.00000
+smart_172raw	1.00000
+smart_173_normalized	1.00000
+smart_173raw	1.00000
+smart_174_normalized	1.00000
+smart_174raw	1.00000
+smart_175_normalized	1.00000
+smart_175raw	1.00000
+smart_176_normalized	1.00000
+smart_176raw	1.00000
+smart_177_normalized	1.00000
+smart_177raw	1.00000
+smart_178_normalized	1.00000
+smart_178raw	1.00000
+smart_179_normalized	1.00000
+smart_179raw	1.00000
+smart_180_normalized	1.00000
+smart_180raw	1.00000
+smart_181_normalized	1.00000
+smart_181raw	1.00000
+smart_182_normalized	1.00000
+smart_182raw	1.00000
+smart_183_normalized	1.00000
+smart_183raw	1.00000
+smart_184_normalized	0.00007
+smart_184raw	0.00007
+smart_185_normalized	1.00000
+smart_185raw	1.00000
+smart_186_normalized	1.00000
+smart_186raw	1.00000
+smart_187_normalized	0.00007
+smart_187raw	0.00007
+smart_188_normalized	0.00006
+smart_188raw	0.00006
+smart_189_normalized	0.00006
+smart_189raw	0.00006
+smart_190_normalized	0.00006
+smart_190raw	0.00006
+smart_191_normalized	0.00006
+smart_191raw	0.00006
+smart_192_normalized	0.00006
+smart_192raw	0.00006
+smart_193_normalized	0.00006
+smart_193raw	0.00006
+smart_194_normalized	0.00006
+smart_194raw	0.00006
+smart_195_normalized	0.00006
+smart_195raw	0.00006
+smart_196_normalized	1.00000
+smart_196raw	1.00000
+smart_197_normalized	0.00006
+smart_197raw	0.00006
+smart_198_normalized	0.00006
+smart_198raw	0.00006
+smart_199_normalized	0.00006
+smart_199raw	0.00006
+smart_200_normalized	1.00000
+smart_200raw	1.00000
+smart_201_normalized	1.00000
+smart_201raw	1.00000
+smart_202_normalized	1.00000
+smart_202raw	1.00000
+smart_203_normalized	1.00000
+smart_203raw	1.00000
+smart_204_normalized	1.00000
+smart_204raw	1.00000
+smart_205_normalized	1.00000
+smart_205raw	1.00000
+smart_206_normalized	1.00000
+smart_206raw	1.00000
+smart_207_normalized	1.00000
+smart_207raw	1.00000
+smart_208_normalized	1.00000
+smart_208raw	1.00000
+smart_209_normalized	1.00000
+smart_209raw	1.00000
+smart_210_normalized	1.00000
+smart_210raw	1.00000
+smart_211_normalized	1.00000
+smart_211raw	1.00000
+smart_212_normalized	1.00000
+smart_212raw	1.00000
+smart_213_normalized	1.00000
+smart_213raw	1.00000
+smart_214_normalized	1.00000
+smart_214raw	1.00000
+smart_215_normalized	1.00000
+smart_215raw	1.00000
+smart_216_normalized	1.00000
+smart_216raw	1.00000
+smart_217_normalized	1.00000
+smart_217raw	1.00000
+smart_218_normalized	1.00000
+smart_218raw	1.00000
+smart_219_normalized	1.00000
+smart_219raw	1.00000
+smart_220_normalized	1.00000
+smart_220raw	1.00000
+smart_221_normalized	1.00000
+smart_221raw	1.00000
+smart_222_normalized	1.00000
+smart_222raw	1.00000
+smart_223_normalized	1.00000
+smart_223raw	1.00000
+smart_224_normalized	1.00000
+smart_224raw	1.00000
+smart_225_normalized	1.00000
+smart_225raw	1.00000
+smart_226_normalized	1.00000
+smart_226raw	1.00000
+smart_227_normalized	1.00000
+smart_227raw	1.00000
+smart_228_normalized	1.00000
+smart_228raw	1.00000
+smart_229_normalized	1.00000
+smart_229raw	1.00000
+smart_230_normalized	1.00000
+smart_230raw	1.00000
+smart_231_normalized	1.00000
+smart_231raw	1.00000
+smart_232_normalized	1.00000
+smart_232raw	1.00000
+smart_233_normalized	1.00000
+smart_233raw	1.00000
+smart_234_normalized	1.00000
+smart_234raw	1.00000
+smart_235_normalized	1.00000
+smart_235raw	1.00000
+smart_236_normalized	1.00000
+smart_236raw	1.00000
+smart_237_normalized	1.00000
+smart_237raw	1.00000
+smart_238_normalized	1.00000
+smart_238raw	1.00000
+smart_239_normalized	1.00000
+smart_239raw	1.00000
+smart_240_normalized	0.72540
+smart_240raw	0.72540
+smart_241_normalized	0.72540
+smart_241raw	0.72540
+smart_242_normalized	0.72540
+smart_242raw	0.72540
+smart_243_normalized	1.00000
+smart_243raw	1.00000
+smart_244_normalized	1.00000
+smart_244raw	1.00000
+smart_245_normalized	1.00000
+smart_245raw	1.00000
+smart_246_normalized	1.00000
+smart_246raw	1.00000
+smart_247_normalized	1.00000
+smart_247raw	1.00000
+smart_248_normalized	1.00000
+smart_248raw	1.00000
+smart_249_normalized	1.00000
+smart_249raw	1.00000
+smart_250_normalized	1.00000
+smart_250raw	1.00000
+smart_251_normalized	1.00000
+smart_251raw	1.00000
+smart_252_normalized	1.00000
+smart_252raw	1.00000
+smart_253_normalized	1.00000
+smart_253raw	1.00000
+smart_254_normalized	1.00000
+smart_254raw	1.00000
+smart_255_normalized	1.00000
+smart_255raw	1.00000
+drop_col_ratio : 0.900, num of drop cols : 486 last cols : 25
+['Unnamed: 0', 'smart_1_normalized', 'smart_3_normalized', 'smart_4_normalized', 'smart_5_normalized', 'smart_7_normalized', 'smart_9_normalized', 'smart_10_normalized', 'smart_12_normalized', 'smart_184_normalized', 'smart_187_normalized', 'smart_188_normalized', 'smart_189_normalized', 'smart_190_normalized', 'smart_191_normalized', 'smart_192_normalized', 'smart_193_normalized', 'smart_194_normalized', 'smart_195_normalized', 'smart_197_normalized', 'smart_198_normalized', 'smart_199_normalized', 'smart_240_normalized', 'smart_241_normalized', 'smart_242_normalized']
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 25) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?][LightGBM] [Warning] Unknown parameter categorical_column=
+ 10%|#         | 1/10 [00:46<07:02, 46.93s/it, best loss: -0.378356279028] 20%|##        | 2/10 [01:41<06:34, 49.32s/it, best loss: -0.409385917939] 30%|###       | 3/10 [02:49<06:23, 54.82s/it, best loss: -0.409385917939] 40%|####      | 4/10 [03:47<05:34, 55.83s/it, best loss: -0.453319712665] 50%|#####     | 5/10 [04:57<04:59, 59.93s/it, best loss: -0.453319712665] 60%|######    | 6/10 [06:00<04:03, 60.81s/it, best loss: -0.453319712665] 70%|#######   | 7/10 [07:04<03:05, 61.76s/it, best loss: -0.453319712665] 80%|########  | 8/10 [08:01<02:01, 60.56s/it, best loss: -0.453319712665] 90%|######### | 9/10 [09:07<01:02, 62.14s/it, best loss: -0.453319712665]100%|##########| 10/10 [10:23<00:00, 66.24s/it, best loss: -0.453319712665]
+best params :  {'num_leaves': 180, 'reg_alpha': 0.20224323671155947, 'colsample_bytree': 0.3619025002934454, 'learning_rate': 0.01178885269677447, 'subsample': 0.4, 'reg_lambda': 0.3244173172451508, 'min_child_samples': 160, 'bagging_fraction': 0.7350404059047353, 'max_depth': 13, 'feature_fraction': 0.7973759917772951}
+f1_score :  -0.45331971266539844 
+
+
+train----------------------------------------------------------------------------------------------------
+test Counter : Counter({0L: 169854, 1L: 8242})
+col : %d
+Unnamed: 0
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 24) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [00:59<08:52, 59.17s/it, best loss: -0.209782848252] 20%|##        | 2/10 [01:40<07:10, 53.78s/it, best loss: -0.209782848252] 30%|###       | 3/10 [02:16<05:40, 48.59s/it, best loss: -0.209782848252] 40%|####      | 4/10 [03:45<06:03, 60.58s/it, best loss: -0.209782848252] 50%|#####     | 5/10 [04:54<05:15, 63.06s/it, best loss: -0.210219713765] 60%|######    | 6/10 [06:03<04:19, 64.79s/it, best loss: -0.211935881979] 70%|#######   | 7/10 [07:17<03:22, 67.64s/it, best loss: -0.212306053151] 80%|########  | 8/10 [08:24<02:14, 67.36s/it, best loss: -0.216497288186] 90%|######### | 9/10 [09:21<01:04, 64.33s/it, best loss: -0.216497288186]100%|##########| 10/10 [10:07<00:00, 58.81s/it, best loss: -0.22016860159]
+best params :  {'num_leaves': 40, 'reg_alpha': 0.3356266105358801, 'colsample_bytree': 0.4791826056604428, 'learning_rate': 0.11781186981855356, 'subsample': 0.2, 'reg_lambda': 0.22546309672614728, 'min_child_samples': 230, 'bagging_fraction': 0.6512818238918454, 'max_depth': 10, 'feature_fraction': 0.6730571727133234}
+f1_score :  -0.22016860159019286 
+
+col : %d
+smart_1_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 24) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [01:09<10:21, 69.04s/it, best loss: -0.394696935466] 20%|##        | 2/10 [02:15<09:06, 68.31s/it, best loss: -0.394696935466] 30%|###       | 3/10 [03:28<08:06, 69.56s/it, best loss: -0.394696935466] 40%|####      | 4/10 [04:17<06:20, 63.37s/it, best loss: -0.394696935466] 50%|#####     | 5/10 [05:06<04:55, 59.13s/it, best loss: -0.394696935466] 60%|######    | 6/10 [06:13<04:06, 61.67s/it, best loss: -0.394696935466] 70%|#######   | 7/10 [07:24<03:13, 64.45s/it, best loss: -0.394696935466] 80%|########  | 8/10 [08:11<01:58, 59.18s/it, best loss: -0.458775635597] 90%|######### | 9/10 [09:19<01:01, 61.91s/it, best loss: -0.458775635597]100%|##########| 10/10 [10:05<00:00, 56.94s/it, best loss: -0.458775635597]
+best params :  {'num_leaves': 100, 'reg_alpha': 0.35546263925248467, 'colsample_bytree': 0.7150476888028379, 'learning_rate': 0.020347298511872072, 'subsample': 0.9, 'reg_lambda': 0.3808800410406808, 'min_child_samples': 110, 'bagging_fraction': 0.5463469356651278, 'max_depth': 10, 'feature_fraction': 0.6479325457799125}
+f1_score :  -0.45877563559675244 
+
+
+train----------------------------------------------------------------------------------------------------
+test Counter : Counter({0L: 169828, 1L: 8268})
+col : %d
+smart_3_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 23) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [01:09<10:26, 69.62s/it, best loss: -0.351673426087] 20%|##        | 2/10 [01:58<08:27, 63.41s/it, best loss: -0.39855061048]  30%|###       | 3/10 [02:50<06:59, 59.93s/it, best loss: -0.39855061048] 40%|####      | 4/10 [03:58<06:15, 62.54s/it, best loss: -0.39855061048] 50%|#####     | 5/10 [05:05<05:18, 63.64s/it, best loss: -0.39855061048] 60%|######    | 6/10 [06:00<04:04, 61.17s/it, best loss: -0.41874651887] 70%|#######   | 7/10 [06:53<02:55, 58.56s/it, best loss: -0.479007241981] 80%|########  | 8/10 [07:44<01:52, 56.35s/it, best loss: -0.479007241981] 90%|######### | 9/10 [08:31<00:53, 53.51s/it, best loss: -0.479007241981]100%|##########| 10/10 [09:31<00:00, 55.61s/it, best loss: -0.479007241981]
+best params :  {'num_leaves': 80, 'reg_alpha': 0.09677800648517683, 'colsample_bytree': 0.6253259541779081, 'learning_rate': 0.018764185483093825, 'subsample': 0.9, 'reg_lambda': 0.33890666374015976, 'min_child_samples': 210, 'bagging_fraction': 0.7306500925375702, 'max_depth': 14, 'feature_fraction': 0.4524468021299903}
+f1_score :  -0.4790072419807899 
+
+
+train----------------------------------------------------------------------------------------------------
+test Counter : Counter({0L: 169563, 1L: 8533})
+col : %d
+smart_4_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 22) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [00:39<05:54, 39.43s/it, best loss: -0.505287346557] 20%|##        | 2/10 [01:26<05:34, 41.86s/it, best loss: -0.505287346557] 30%|###       | 3/10 [02:34<05:46, 49.55s/it, best loss: -0.505287346557] 40%|####      | 4/10 [03:21<04:52, 48.72s/it, best loss: -0.505287346557] 50%|#####     | 5/10 [03:55<03:42, 44.42s/it, best loss: -0.505287346557] 60%|######    | 6/10 [04:46<03:05, 46.27s/it, best loss: -0.505287346557] 70%|#######   | 7/10 [05:33<02:20, 46.68s/it, best loss: -0.505287346557] 80%|########  | 8/10 [06:33<01:41, 50.60s/it, best loss: -0.505287346557] 90%|######### | 9/10 [07:21<00:49, 49.94s/it, best loss: -0.505287346557]100%|##########| 10/10 [08:26<00:00, 54.35s/it, best loss: -0.505287346557]
+best params :  {'num_leaves': 30, 'reg_alpha': 0.24298908294665153, 'colsample_bytree': 0.8701668313287068, 'learning_rate': 0.046798584902945965, 'subsample': 0.5, 'reg_lambda': 0.15724023372331067, 'min_child_samples': 210, 'bagging_fraction': 0.7707046743946261, 'max_depth': 8, 'feature_fraction': 0.7668916623169391}
+f1_score :  -0.5052873465570056 
+
+
+train----------------------------------------------------------------------------------------------------
+test Counter : Counter({0L: 169285, 1L: 8811})
+col : %d
+smart_5_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 21) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [00:36<05:30, 36.76s/it, best loss: -0.596688443363] 20%|##        | 2/10 [01:28<05:30, 41.31s/it, best loss: -0.596688443363] 30%|###       | 3/10 [02:08<04:46, 40.90s/it, best loss: -0.596688443363] 40%|####      | 4/10 [02:42<03:53, 38.94s/it, best loss: -0.596688443363] 50%|#####     | 5/10 [03:28<03:24, 40.93s/it, best loss: -0.596688443363] 60%|######    | 6/10 [04:13<02:48, 42.01s/it, best loss: -0.596688443363] 70%|#######   | 7/10 [04:55<02:06, 42.01s/it, best loss: -0.596688443363] 80%|########  | 8/10 [05:58<01:37, 48.55s/it, best loss: -0.596688443363] 90%|######### | 9/10 [07:00<00:52, 52.45s/it, best loss: -0.596688443363]100%|##########| 10/10 [07:36<00:00, 47.65s/it, best loss: -0.596688443363]
+best params :  {'num_leaves': 30, 'reg_alpha': 0.05714150929421059, 'colsample_bytree': 0.5167207393513013, 'learning_rate': 0.0106649939734541, 'subsample': 0.7, 'reg_lambda': 0.3407873734986561, 'min_child_samples': 200, 'bagging_fraction': 0.6160508703138705, 'max_depth': 15, 'feature_fraction': 0.5572559114935263}
+f1_score :  -0.5966884433634003 
+
+
+train----------------------------------------------------------------------------------------------------
+test Counter : Counter({0L: 167951, 1L: 10145})
+col : %d
+smart_7_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 20) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [00:47<07:05, 47.28s/it, best loss: -0.420861728832] 20%|##        | 2/10 [01:32<06:13, 46.63s/it, best loss: -0.420861728832] 30%|###       | 3/10 [02:05<04:58, 42.63s/it, best loss: -0.520624999067] 40%|####      | 4/10 [03:11<04:58, 49.70s/it, best loss: -0.520624999067] 50%|#####     | 5/10 [04:09<04:21, 52.21s/it, best loss: -0.520624999067] 60%|######    | 6/10 [05:05<03:32, 53.09s/it, best loss: -0.520624999067] 70%|#######   | 7/10 [06:09<02:49, 56.41s/it, best loss: -0.520624999067] 80%|########  | 8/10 [06:45<01:40, 50.31s/it, best loss: -0.520624999067] 90%|######### | 9/10 [07:21<00:46, 46.12s/it, best loss: -0.520624999067]100%|##########| 10/10 [08:07<00:00, 46.17s/it, best loss: -0.520624999067]
+best params :  {'num_leaves': 20, 'reg_alpha': 0.11120851131325613, 'colsample_bytree': 0.8003229062040298, 'learning_rate': 0.09381248777951379, 'subsample': 0.2, 'reg_lambda': 0.2949304973826375, 'min_child_samples': 190, 'bagging_fraction': 0.725898918338977, 'max_depth': 9, 'feature_fraction': 0.5615110447558129}
+f1_score :  -0.5206249990667912 
+
+col : %d
+smart_9_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 20) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [01:07<10:07, 67.54s/it, best loss: -0.433183180441] 20%|##        | 2/10 [01:52<08:05, 60.73s/it, best loss: -0.498631621942] 30%|###       | 3/10 [02:59<07:18, 62.63s/it, best loss: -0.498631621942] 40%|####      | 4/10 [04:07<06:24, 64.13s/it, best loss: -0.498631621942] 50%|#####     | 5/10 [05:13<05:24, 64.90s/it, best loss: -0.498631621942] 60%|######    | 6/10 [06:09<04:09, 62.27s/it, best loss: -0.498631621942] 70%|#######   | 7/10 [06:48<02:45, 55.22s/it, best loss: -0.568983777679] 80%|########  | 8/10 [07:43<01:49, 54.98s/it, best loss: -0.568983777679] 90%|######### | 9/10 [08:18<00:49, 49.03s/it, best loss: -0.610501114256]100%|##########| 10/10 [09:17<00:00, 52.10s/it, best loss: -0.610501114256]
+best params :  {'num_leaves': 20, 'reg_alpha': 0.17667837013387033, 'colsample_bytree': 0.7223244932690027, 'learning_rate': 0.012959047454378652, 'subsample': 0.6, 'reg_lambda': 0.23083853477853644, 'min_child_samples': 130, 'bagging_fraction': 0.43982047752091324, 'max_depth': 13, 'feature_fraction': 0.4468663143817254}
+f1_score :  -0.6105011142561808 
+
+
+train----------------------------------------------------------------------------------------------------
+test Counter : Counter({0L: 168181, 1L: 9915})
+col : %d
+smart_10_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 19) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [00:35<05:22, 35.87s/it, best loss: -0.49350674719] 20%|##        | 2/10 [01:29<05:29, 41.22s/it, best loss: -0.49350674719] 30%|###       | 3/10 [02:14<04:57, 42.45s/it, best loss: -0.49350674719] 40%|####      | 4/10 [02:58<04:16, 42.76s/it, best loss: -0.49350674719] 50%|#####     | 5/10 [04:01<04:04, 48.93s/it, best loss: -0.49350674719] 60%|######    | 6/10 [05:10<03:39, 54.94s/it, best loss: -0.49350674719] 70%|#######   | 7/10 [06:07<02:46, 55.44s/it, best loss: -0.49350674719] 80%|########  | 8/10 [07:00<01:49, 54.82s/it, best loss: -0.49350674719] 90%|######### | 9/10 [07:42<00:50, 50.95s/it, best loss: -0.49350674719]100%|##########| 10/10 [08:35<00:00, 51.64s/it, best loss: -0.49350674719]
+best params :  {'num_leaves': 20, 'reg_alpha': 0.14313874811412375, 'colsample_bytree': 0.42737822747641746, 'learning_rate': 0.13817742412952785, 'subsample': 0.8, 'reg_lambda': 0.13482557020550254, 'min_child_samples': 170, 'bagging_fraction': 0.4561450722237824, 'max_depth': 20, 'feature_fraction': 0.771578739770279}
+f1_score :  -0.4935067471903055 
+
+col : %d
+smart_12_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 19) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [01:01<09:12, 61.34s/it, best loss: -0.34724448878] 20%|##        | 2/10 [01:41<07:19, 54.94s/it, best loss: -0.48373099276] 30%|###       | 3/10 [02:42<06:37, 56.79s/it, best loss: -0.48373099276] 40%|####      | 4/10 [03:40<05:43, 57.28s/it, best loss: -0.48373099276] 50%|#####     | 5/10 [04:24<04:25, 53.17s/it, best loss: -0.48373099276] 60%|######    | 6/10 [04:57<03:08, 47.19s/it, best loss: -0.572168777972] 70%|#######   | 7/10 [05:46<02:23, 47.76s/it, best loss: -0.572168777972] 80%|########  | 8/10 [06:21<01:27, 43.90s/it, best loss: -0.572168777972] 90%|######### | 9/10 [07:21<00:48, 48.67s/it, best loss: -0.572168777972]100%|##########| 10/10 [08:03<00:00, 46.81s/it, best loss: -0.572168777972]
+best params :  {'num_leaves': 20, 'reg_alpha': 0.30937168729801817, 'colsample_bytree': 0.5087442265610984, 'learning_rate': 0.054403414171847776, 'subsample': 0.8, 'reg_lambda': 0.32010499969853184, 'min_child_samples': 200, 'bagging_fraction': 0.7455150497941568, 'max_depth': 17, 'feature_fraction': 0.7465764702356467}
+f1_score :  -0.5721687779721462 
+
+col : %d
+smart_184_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 19) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [00:55<08:23, 55.98s/it, best loss: -0.391812081629] 20%|##        | 2/10 [01:39<06:58, 52.33s/it, best loss: -0.510236805518] 30%|###       | 3/10 [02:31<06:04, 52.10s/it, best loss: -0.510236805518] 40%|####      | 4/10 [03:05<04:40, 46.72s/it, best loss: -0.579614632616] 50%|#####     | 5/10 [03:49<03:48, 45.78s/it, best loss: -0.579614632616] 60%|######    | 6/10 [04:50<03:21, 50.33s/it, best loss: -0.579614632616] 70%|#######   | 7/10 [05:22<02:14, 44.88s/it, best loss: -0.611822954492] 80%|########  | 8/10 [06:32<01:45, 52.50s/it, best loss: -0.611822954492] 90%|######### | 9/10 [07:22<00:51, 51.89s/it, best loss: -0.611822954492]100%|##########| 10/10 [08:07<00:00, 49.57s/it, best loss: -0.611822954492]
+best params :  {'num_leaves': 20, 'reg_alpha': 0.3586525466489689, 'colsample_bytree': 0.38970219134999556, 'learning_rate': 0.028318725449191187, 'subsample': 0.7, 'reg_lambda': 0.12807530315543636, 'min_child_samples': 210, 'bagging_fraction': 0.4009139023856435, 'max_depth': 20, 'feature_fraction': 0.5889740292979038}
+f1_score :  -0.6118229544923685 
+
+
+train----------------------------------------------------------------------------------------------------
+test Counter : Counter({0L: 168024, 1L: 10072})
+col : %d
+smart_187_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 18) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [00:43<06:29, 43.33s/it, best loss: -0.429074769689] 20%|##        | 2/10 [01:23<05:37, 42.25s/it, best loss: -0.576532000051] 30%|###       | 3/10 [02:07<04:59, 42.85s/it, best loss: -0.576532000051] 40%|####      | 4/10 [03:00<04:35, 45.90s/it, best loss: -0.576532000051] 50%|#####     | 5/10 [04:00<04:11, 50.21s/it, best loss: -0.576532000051] 60%|######    | 6/10 [05:06<03:39, 54.85s/it, best loss: -0.576532000051] 70%|#######   | 7/10 [06:00<02:44, 54.77s/it, best loss: -0.576532000051] 80%|########  | 8/10 [07:03<01:53, 56.98s/it, best loss: -0.576532000051] 90%|######### | 9/10 [07:53<00:54, 54.99s/it, best loss: -0.576532000051]100%|##########| 10/10 [08:57<00:00, 57.77s/it, best loss: -0.576532000051]
+best params :  {'num_leaves': 40, 'reg_alpha': 0.32992937717134646, 'colsample_bytree': 0.7330771693016308, 'learning_rate': 0.015572413678296862, 'subsample': 0.9, 'reg_lambda': 0.3891371228645965, 'min_child_samples': 100, 'bagging_fraction': 0.8035957257865571, 'max_depth': 17, 'feature_fraction': 0.46316872574552964}
+f1_score :  -0.5765320000507153 
+
+col : %d
+smart_188_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 18) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [00:52<07:50, 52.28s/it, best loss: -0.443297753068] 20%|##        | 2/10 [01:37<06:40, 50.08s/it, best loss: -0.443297753068] 30%|###       | 3/10 [02:28<05:53, 50.43s/it, best loss: -0.443297753068] 40%|####      | 4/10 [03:34<05:30, 55.14s/it, best loss: -0.443297753068] 50%|#####     | 5/10 [04:35<04:44, 57.00s/it, best loss: -0.461083383475] 60%|######    | 6/10 [05:36<03:52, 58.11s/it, best loss: -0.461083383475] 70%|#######   | 7/10 [06:41<03:00, 60.09s/it, best loss: -0.461083383475] 80%|########  | 8/10 [07:39<01:59, 59.61s/it, best loss: -0.461083383475] 90%|######### | 9/10 [08:37<00:59, 59.09s/it, best loss: -0.461083383475]100%|##########| 10/10 [09:24<00:00, 55.44s/it, best loss: -0.461083383475]
+best params :  {'num_leaves': 130, 'reg_alpha': 0.02584238134340122, 'colsample_bytree': 0.8389357856939701, 'learning_rate': 0.03779250307072392, 'subsample': 0.5, 'reg_lambda': 0.38811032302162846, 'min_child_samples': 220, 'bagging_fraction': 0.5634176382314533, 'max_depth': 12, 'feature_fraction': 0.7932845827098994}
+f1_score :  -0.46108338347456607 
+
+col : %d
+smart_189_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 18) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [00:58<08:47, 58.59s/it, best loss: -0.409896188742] 20%|##        | 2/10 [01:46<07:21, 55.25s/it, best loss: -0.409896188742] 30%|###       | 3/10 [02:35<06:15, 53.64s/it, best loss: -0.540865081413] 40%|####      | 4/10 [03:37<05:35, 55.98s/it, best loss: -0.540865081413] 50%|#####     | 5/10 [04:19<04:18, 51.74s/it, best loss: -0.540865081413] 60%|######    | 6/10 [05:08<03:23, 50.86s/it, best loss: -0.540865081413] 70%|#######   | 7/10 [05:54<02:28, 49.42s/it, best loss: -0.564383194958] 80%|########  | 8/10 [06:47<01:41, 50.64s/it, best loss: -0.564383194958] 90%|######### | 9/10 [07:31<00:48, 48.60s/it, best loss: -0.564383194958]100%|##########| 10/10 [08:13<00:00, 46.59s/it, best loss: -0.564383194958]
+best params :  {'num_leaves': 240, 'reg_alpha': 0.010361181552311955, 'colsample_bytree': 0.8843943912409535, 'learning_rate': 0.01712039712230426, 'subsample': 0.4, 'reg_lambda': 0.377972303612572, 'min_child_samples': 120, 'bagging_fraction': 0.787079950208979, 'max_depth': 9, 'feature_fraction': 0.6107589125217228}
+f1_score :  -0.5643831949583893 
+
+col : %d
+smart_190_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 18) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [00:52<07:52, 52.54s/it, best loss: -0.454936308749] 20%|##        | 2/10 [01:26<06:16, 47.05s/it, best loss: -0.477240269846] 30%|###       | 3/10 [02:23<05:50, 50.00s/it, best loss: -0.477240269846] 40%|####      | 4/10 [03:09<04:52, 48.80s/it, best loss: -0.477240269846] 50%|#####     | 5/10 [04:07<04:16, 51.39s/it, best loss: -0.477240269846] 60%|######    | 6/10 [04:52<03:18, 49.56s/it, best loss: -0.558963147203] 70%|#######   | 7/10 [05:37<02:24, 48.24s/it, best loss: -0.558963147203] 80%|########  | 8/10 [06:16<01:31, 45.57s/it, best loss: -0.558963147203] 90%|######### | 9/10 [07:14<00:49, 49.17s/it, best loss: -0.558963147203]100%|##########| 10/10 [08:06<00:00, 50.00s/it, best loss: -0.558963147203]
+best params :  {'num_leaves': 230, 'reg_alpha': 0.01268207098920526, 'colsample_bytree': 0.7263061436657032, 'learning_rate': 0.02009739014253728, 'subsample': 0.9, 'reg_lambda': 0.2442878960871759, 'min_child_samples': 180, 'bagging_fraction': 0.4902733037237307, 'max_depth': 9, 'feature_fraction': 0.6651580977933531}
+f1_score :  -0.558963147202603 
+
+col : %d
+smart_191_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 18) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [00:46<06:57, 46.38s/it, best loss: -0.524541216338] 20%|##        | 2/10 [01:51<06:55, 51.91s/it, best loss: -0.524541216338] 30%|###       | 3/10 [02:29<05:34, 47.81s/it, best loss: -0.564698390995] 40%|####      | 4/10 [03:22<04:56, 49.37s/it, best loss: -0.564698390995] 50%|#####     | 5/10 [04:03<03:54, 46.90s/it, best loss: -0.564698390995] 60%|######    | 6/10 [04:55<03:13, 48.31s/it, best loss: -0.564698390995] 70%|#######   | 7/10 [05:34<02:16, 45.61s/it, best loss: -0.564698390995] 80%|########  | 8/10 [06:22<01:32, 46.38s/it, best loss: -0.564698390995] 90%|######### | 9/10 [07:00<00:43, 43.86s/it, best loss: -0.564698390995]100%|##########| 10/10 [07:35<00:00, 41.08s/it, best loss: -0.564698390995]
+best params :  {'num_leaves': 50, 'reg_alpha': 0.06281339867659295, 'colsample_bytree': 0.7028899449597965, 'learning_rate': 0.027409306931832404, 'subsample': 0.8, 'reg_lambda': 0.050795007837234486, 'min_child_samples': 130, 'bagging_fraction': 0.7549381034319409, 'max_depth': 17, 'feature_fraction': 0.6384272133749961}
+f1_score :  -0.5646983909950218 
+
+col : %d
+smart_192_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 18) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [00:33<05:01, 33.50s/it, best loss: -0.454190054819] 20%|##        | 2/10 [01:39<05:45, 43.17s/it, best loss: -0.454190054819] 30%|###       | 3/10 [02:37<05:33, 47.64s/it, best loss: -0.454190054819] 40%|####      | 4/10 [03:11<04:21, 43.63s/it, best loss: -0.467359518964] 50%|#####     | 5/10 [04:12<04:04, 48.89s/it, best loss: -0.467359518964] 60%|######    | 6/10 [04:45<02:56, 44.07s/it, best loss: -0.483196872404] 70%|#######   | 7/10 [05:19<02:03, 41.04s/it, best loss: -0.483196872404] 80%|########  | 8/10 [06:07<01:26, 43.20s/it, best loss: -0.483196872404] 90%|######### | 9/10 [07:10<00:48, 48.99s/it, best loss: -0.483196872404]100%|##########| 10/10 [08:14<00:00, 53.49s/it, best loss: -0.483196872404]
+best params :  {'num_leaves': 30, 'reg_alpha': 0.33534253130045766, 'colsample_bytree': 0.3995524340806183, 'learning_rate': 0.11232191307486933, 'subsample': 0.8, 'reg_lambda': 0.20691729589802202, 'min_child_samples': 130, 'bagging_fraction': 0.5086125188585413, 'max_depth': 10, 'feature_fraction': 0.5723525542646538}
+f1_score :  -0.48319687240423603 
+
+col : %d
+smart_193_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 18) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [00:55<08:17, 55.32s/it, best loss: -0.390398100218] 20%|##        | 2/10 [01:57<07:39, 57.48s/it, best loss: -0.390398100218] 30%|###       | 3/10 [02:51<06:34, 56.33s/it, best loss: -0.4024887552]   40%|####      | 4/10 [03:44<05:31, 55.26s/it, best loss: -0.4024887552] 50%|#####     | 5/10 [04:33<04:27, 53.41s/it, best loss: -0.403589668917] 60%|######    | 6/10 [05:28<03:35, 53.85s/it, best loss: -0.403589668917] 70%|#######   | 7/10 [06:00<02:22, 47.44s/it, best loss: -0.537485155337] 80%|########  | 8/10 [06:52<01:37, 48.72s/it, best loss: -0.537485155337] 90%|######### | 9/10 [07:42<00:49, 49.06s/it, best loss: -0.537485155337]100%|##########| 10/10 [08:34<00:00, 49.98s/it, best loss: -0.537485155337]
+best params :  {'num_leaves': 20, 'reg_alpha': 0.04896817854003787, 'colsample_bytree': 0.6722134422901727, 'learning_rate': 0.07772153893461073, 'subsample': 0.7, 'reg_lambda': 0.05104328036561514, 'min_child_samples': 100, 'bagging_fraction': 0.4355178434480619, 'max_depth': 12, 'feature_fraction': 0.7708916023246569}
+f1_score :  -0.5374851553370148 
+
+col : %d
+smart_194_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 18) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [01:04<09:39, 64.37s/it, best loss: -0.371652235413] 20%|##        | 2/10 [01:38<07:22, 55.28s/it, best loss: -0.48022037267]  30%|###       | 3/10 [02:28<06:16, 53.74s/it, best loss: -0.48022037267] 40%|####      | 4/10 [03:33<05:42, 57.08s/it, best loss: -0.48022037267] 50%|#####     | 5/10 [04:26<04:38, 55.79s/it, best loss: -0.48022037267] 60%|######    | 6/10 [05:12<03:31, 52.97s/it, best loss: -0.48022037267] 70%|#######   | 7/10 [06:11<02:44, 54.72s/it, best loss: -0.48022037267] 80%|########  | 8/10 [07:06<01:49, 54.67s/it, best loss: -0.48022037267] 90%|######### | 9/10 [07:59<00:54, 54.33s/it, best loss: -0.48022037267]100%|##########| 10/10 [08:53<00:00, 54.37s/it, best loss: -0.48022037267]
+best params :  {'num_leaves': 30, 'reg_alpha': 0.2931571630569394, 'colsample_bytree': 0.39506649262985266, 'learning_rate': 0.1227470246595711, 'subsample': 0.6, 'reg_lambda': 0.3445116716270176, 'min_child_samples': 160, 'bagging_fraction': 0.595767155760118, 'max_depth': 13, 'feature_fraction': 0.6520664620344188}
+f1_score :  -0.4802203726700246 
+
+col : %d
+smart_195_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 18) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [00:43<06:34, 43.85s/it, best loss: -0.485458775282] 20%|##        | 2/10 [01:39<06:18, 47.35s/it, best loss: -0.485458775282] 30%|###       | 3/10 [02:32<05:44, 49.21s/it, best loss: -0.486142940374] 40%|####      | 4/10 [03:10<04:35, 45.84s/it, best loss: -0.498218051775] 50%|#####     | 5/10 [04:13<04:14, 50.89s/it, best loss: -0.498218051775] 60%|######    | 6/10 [05:06<03:25, 51.43s/it, best loss: -0.498218051775] 70%|#######   | 7/10 [06:07<02:42, 54.33s/it, best loss: -0.498218051775] 80%|########  | 8/10 [07:05<01:50, 55.49s/it, best loss: -0.498218051775] 90%|######### | 9/10 [07:48<00:51, 51.62s/it, best loss: -0.498218051775]100%|##########| 10/10 [08:30<00:00, 48.98s/it, best loss: -0.513764190265]
+best params :  {'num_leaves': 60, 'reg_alpha': 0.3532044789442355, 'colsample_bytree': 0.353810515128774, 'learning_rate': 0.10370492962501324, 'subsample': 0.7, 'reg_lambda': 0.0342957495172932, 'min_child_samples': 170, 'bagging_fraction': 0.5576575703939474, 'max_depth': 8, 'feature_fraction': 0.4013752959810166}
+f1_score :  -0.5137641902645486 
+
+col : %d
+smart_197_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 18) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [01:00<09:03, 60.38s/it, best loss: -0.502662577875] 20%|##        | 2/10 [02:05<08:14, 61.78s/it, best loss: -0.502662577875] 30%|###       | 3/10 [02:57<06:51, 58.85s/it, best loss: -0.502662577875] 40%|####      | 4/10 [04:00<06:00, 60.13s/it, best loss: -0.502662577875] 50%|#####     | 5/10 [04:56<04:53, 58.74s/it, best loss: -0.502662577875] 60%|######    | 6/10 [05:41<03:38, 54.67s/it, best loss: -0.502662577875] 70%|#######   | 7/10 [06:33<02:41, 53.97s/it, best loss: -0.502662577875] 80%|########  | 8/10 [07:42<01:57, 58.56s/it, best loss: -0.502662577875] 90%|######### | 9/10 [08:49<01:01, 61.14s/it, best loss: -0.502662577875]100%|##########| 10/10 [09:40<00:00, 57.88s/it, best loss: -0.502662577875]
+best params :  {'num_leaves': 40, 'reg_alpha': 0.11483827621406002, 'colsample_bytree': 0.781745120409816, 'learning_rate': 0.06447246428048957, 'subsample': 0.4, 'reg_lambda': 0.11248144656468297, 'min_child_samples': 220, 'bagging_fraction': 0.8053920927828898, 'max_depth': 9, 'feature_fraction': 0.7674759382664391}
+f1_score :  -0.5026625778748893 
+
+col : %d
+smart_198_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 18) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [01:00<09:00, 60.01s/it, best loss: -0.441322346385] 20%|##        | 2/10 [01:52<07:42, 57.85s/it, best loss: -0.525363777597] 30%|###       | 3/10 [02:47<06:38, 56.89s/it, best loss: -0.525363777597] 40%|####      | 4/10 [03:19<04:56, 49.47s/it, best loss: -0.525363777597] 50%|#####     | 5/10 [04:10<04:10, 50.01s/it, best loss: -0.525363777597] 60%|######    | 6/10 [05:06<03:26, 51.65s/it, best loss: -0.525363777597] 70%|#######   | 7/10 [05:56<02:33, 51.17s/it, best loss: -0.525363777597] 80%|########  | 8/10 [06:33<01:33, 46.85s/it, best loss: -0.529855893238] 90%|######### | 9/10 [07:18<00:46, 46.50s/it, best loss: -0.583191807248]100%|##########| 10/10 [08:10<00:00, 48.03s/it, best loss: -0.583191807248]
+best params :  {'num_leaves': 140, 'reg_alpha': 0.24437903682524223, 'colsample_bytree': 0.6602129761157894, 'learning_rate': 0.010991535057455403, 'subsample': 0.8, 'reg_lambda': 0.20234315438959033, 'min_child_samples': 200, 'bagging_fraction': 0.6287370706202081, 'max_depth': 9, 'feature_fraction': 0.6188055087946215}
+f1_score :  -0.5831918072480773 
+
+col : %d
+smart_199_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 18) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [00:49<07:22, 49.12s/it, best loss: -0.461481676021] 20%|##        | 2/10 [01:24<05:59, 44.91s/it, best loss: -0.512261715536] 30%|###       | 3/10 [02:22<05:42, 48.96s/it, best loss: -0.512261715536] 40%|####      | 4/10 [03:13<04:57, 49.64s/it, best loss: -0.512261715536] 50%|#####     | 5/10 [04:09<04:17, 51.49s/it, best loss: -0.512261715536] 60%|######    | 6/10 [05:01<03:26, 51.57s/it, best loss: -0.512261715536] 70%|#######   | 7/10 [06:04<02:44, 54.95s/it, best loss: -0.512261715536] 80%|########  | 8/10 [06:42<01:39, 49.91s/it, best loss: -0.512261715536] 90%|######### | 9/10 [07:13<00:44, 44.33s/it, best loss: -0.618735861667]100%|##########| 10/10 [08:10<00:00, 47.93s/it, best loss: -0.618735861667]
+best params :  {'num_leaves': 20, 'reg_alpha': 0.3459517068199065, 'colsample_bytree': 0.6587155689849317, 'learning_rate': 0.023492910773343423, 'subsample': 0.4, 'reg_lambda': 0.3920587266560016, 'min_child_samples': 150, 'bagging_fraction': 0.5983724850697214, 'max_depth': 9, 'feature_fraction': 0.675525651382248}
+f1_score :  -0.6187358616674199 
+
+
+train----------------------------------------------------------------------------------------------------
+test Counter : Counter({0L: 167893, 1L: 10203})
+col : %d
+smart_240_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 17) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [00:52<07:49, 52.20s/it, best loss: -0.345015475176] 20%|##        | 2/10 [01:38<06:42, 50.36s/it, best loss: -0.425003075226] 30%|###       | 3/10 [02:44<06:25, 55.03s/it, best loss: -0.425003075226] 40%|####      | 4/10 [03:33<05:19, 53.29s/it, best loss: -0.477161257791] 50%|#####     | 5/10 [04:07<03:57, 47.59s/it, best loss: -0.498483048196] 60%|######    | 6/10 [05:13<03:32, 53.13s/it, best loss: -0.498483048196] 70%|#######   | 7/10 [05:56<02:29, 49.95s/it, best loss: -0.498483048196] 80%|########  | 8/10 [06:48<01:41, 50.56s/it, best loss: -0.498483048196] 90%|######### | 9/10 [07:47<00:53, 53.14s/it, best loss: -0.498483048196]100%|##########| 10/10 [08:50<00:00, 56.00s/it, best loss: -0.498483048196]
+best params :  {'num_leaves': 20, 'reg_alpha': 0.0681475876664599, 'colsample_bytree': 0.30124648351181327, 'learning_rate': 0.15380763368600442, 'subsample': 0.5, 'reg_lambda': 0.29065820051259056, 'min_child_samples': 190, 'bagging_fraction': 0.42576510899780506, 'max_depth': 20, 'feature_fraction': 0.6835376744963897}
+f1_score :  -0.498483048196438 
+
+col : %d
+smart_241_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 17) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [00:43<06:28, 43.18s/it, best loss: -0.430696317656] 20%|##        | 2/10 [01:30<05:55, 44.46s/it, best loss: -0.459699761882] 30%|###       | 3/10 [02:23<05:28, 46.89s/it, best loss: -0.49288618822]  40%|####      | 4/10 [03:10<04:41, 46.96s/it, best loss: -0.49288618822] 50%|#####     | 5/10 [04:19<04:28, 53.65s/it, best loss: -0.49288618822] 60%|######    | 6/10 [05:08<03:28, 52.23s/it, best loss: -0.49288618822] 70%|#######   | 7/10 [06:05<02:41, 53.69s/it, best loss: -0.49288618822] 80%|########  | 8/10 [06:49<01:41, 50.65s/it, best loss: -0.49288618822] 90%|######### | 9/10 [07:30<00:47, 47.73s/it, best loss: -0.49288618822]100%|##########| 10/10 [08:32<00:00, 52.01s/it, best loss: -0.49288618822]
+best params :  {'num_leaves': 140, 'reg_alpha': 0.2480344662740767, 'colsample_bytree': 0.6155555010777511, 'learning_rate': 0.018080659984158677, 'subsample': 0.6, 'reg_lambda': 0.049030099338268275, 'min_child_samples': 190, 'bagging_fraction': 0.8537354414456088, 'max_depth': 21, 'feature_fraction': 0.6610923626819734}
+f1_score :  -0.4928861882204395 
+
+col : %d
+smart_242_normalized
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 17) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [00:54<08:13, 54.78s/it, best loss: -0.378261992246] 20%|##        | 2/10 [01:49<07:18, 54.86s/it, best loss: -0.466939425051] 30%|###       | 3/10 [02:42<06:18, 54.11s/it, best loss: -0.477891383701] 40%|####      | 4/10 [03:28<05:09, 51.64s/it, best loss: -0.477891383701] 50%|#####     | 5/10 [04:29<04:33, 54.73s/it, best loss: -0.477891383701] 60%|######    | 6/10 [05:28<03:43, 55.89s/it, best loss: -0.477891383701] 70%|#######   | 7/10 [06:07<02:32, 50.85s/it, best loss: -0.477891383701] 80%|########  | 8/10 [07:14<01:51, 55.53s/it, best loss: -0.477891383701] 90%|######### | 9/10 [08:18<00:58, 58.23s/it, best loss: -0.477891383701]100%|##########| 10/10 [09:05<00:00, 54.72s/it, best loss: -0.496382004431]
+best params :  {'num_leaves': 90, 'reg_alpha': 0.03400798670307037, 'colsample_bytree': 0.8319769800360755, 'learning_rate': 0.028704974835127725, 'subsample': 0.8, 'reg_lambda': 0.04074763077192019, 'min_child_samples': 120, 'bagging_fraction': 0.574553140303882, 'max_depth': 19, 'feature_fraction': 0.4310228378849503}
+f1_score :  -0.49638200443083313 
+
+val_lgb ----------------------------------------------------------------------------------------------------
+shape :  (1228074, 25) (1228074L,)
+  0%|          | 0/10 [00:00<?, ?it/s, best loss: ?] 10%|#         | 1/10 [01:08<10:14, 68.27s/it, best loss: -0.321055463309] 20%|##        | 2/10 [02:11<08:54, 66.83s/it, best loss: -0.357803980457] 30%|###       | 3/10 [03:11<07:33, 64.81s/it, best loss: -0.357803980457] 40%|####      | 4/10 [04:08<06:13, 62.28s/it, best loss: -0.381442935775] 50%|#####     | 5/10 [05:07<05:06, 61.31s/it, best loss: -0.381442935775] 60%|######    | 6/10 [06:14<04:12, 63.16s/it, best loss: -0.381442935775] 70%|#######   | 7/10 [07:11<03:03, 61.32s/it, best loss: -0.381442935775] 80%|########  | 8/10 [08:02<01:56, 58.05s/it, best loss: -0.381442935775] 90%|######### | 9/10 [08:47<00:54, 54.29s/it, best loss: -0.561079304843]100%|##########| 10/10 [09:34<00:00, 52.10s/it, best loss: -0.561079304843]
+best params :  {'num_leaves': 50, 'reg_alpha': 0.34979393870790404, 'colsample_bytree': 0.531116067742113, 'learning_rate': 0.010170352382596901, 'subsample': 0.8, 'reg_lambda': 0.3218096921544728, 'min_child_samples': 200, 'bagging_fraction': 0.8021467143488102, 'max_depth': 23, 'feature_fraction': 0.7622686074492693}
+f1_score :  -0.5610793048431691 
+
+cols change :  25 18
+score : -0.5610793048431691
+
+train----------------------------------------------------------------------------------------------------
+test Counter : Counter({0L: 166952, 1L: 11144})
+sepend time :  15530.9359999

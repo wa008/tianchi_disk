@@ -51,7 +51,7 @@ def take_sample():
         print 'debug3'
         df_negative = df_negative.sample(n = len(df_positive) * 5, random_state = 2020)
         df = pd.concat([df_positive, df_negative])
-        df.to_csv(data_path + data_pre_name + str(day) + '_sample_pn.csv', index = False)
+        df.to_csv(data_path + data_pre_name + str(day) + '_sample_pn_copy.csv', index = False)
         print day, cnt, len(df_positive), len(df)
     return df
 
