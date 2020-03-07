@@ -58,7 +58,7 @@ def objective(params):
         weight_tr, weight_vl = weight.iloc[tr_idx], weight.iloc[val_idx]
         clf.fit(X_tr, y_tr, sample_weight = weight_tr)
         pred = clf.predict(X_vl)
-        score = f1_score(y_pred = pred, y_true = y_vl, sample_weight = weight_vl)
+        score = f1_score(y_pred = pred, y_true = y_vl)
         score_mean += score
     # print 'Mean f1_score : ', score_mean * 1.0 / FOLDS, '\n'
     del X_tr, X_vl, y_tr, y_vl, clf, score

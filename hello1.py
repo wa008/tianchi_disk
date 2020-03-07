@@ -38,26 +38,29 @@ def take_sample():
     print df_label.head(3)
     for col in ['manufacturer', 'model', 'serial_number']: df_label[col] = df_label[col].astype(str)
     for day in range(201707, 201713) + range(201801, 201808):
-        # if day != 201807: continue
+        # if day <= 201712: continue
         df = read_data_csv(data_pre_name + str(day), read_rows)
+        print 'raw : ', len(df)
         cnt = df.shape
         for col in ['manufacturer', 'model', 'serial_number']: df[col] = df[col].astype(str)
         df = df.merge(df_label, on = ['manufacturer', 'model', 'serial_number'], how = 'left')
         df_positive = df[~df['fault_time'].isna()]
         df = df[df['fault_time'].isna()]
-        df.sample(n = len(df_positive) * 10, random_state = 2020, replace = True)
+        df = df.sample(n = len(df_positive) * 10, random_state = 2020)
         df = pd.concat([df_positive, df])
         df.to_csv(data_path + data_pre_name + str(day) + '_sample_pn_v2.csv', index = False)
-        print day, cnt, len(df_positive), len(df)
+        print 'sample : ', day, cnt, len(df_positive), len(df)
+        del df, df_positive
+        gc.collect()
     return df
 
 def read_data():
     read_rows = int(sys.argv[1])
     data_pre_name = 'disk_sample_smart_log_'
-    df = read_data_csv(data_pre_name + '201707' + '_sample_pn', read_rows)
+    df = read_data_csv(data_pre_name + '201707' + '_sample_pn_v2', read_rows)
     print '201707', df.shape
     for day in range(201708, 201713) + range(201801, 201808):
-        df_temp = read_data_csv(data_pre_name + str(day) + '_sample_pn', read_rows)
+        df_temp = read_data_csv(data_pre_name + str(day) + '_sample_pn_v2', read_rows)
         df = pd.concat([df, df_temp])
         print day, df.shape
     df_test = read_data_csv('disk_sample_smart_log_test_a', -1)
@@ -97,7 +100,7 @@ def data_process(df_train, df_test, cols, col_ratio = 0.8):
         print '%s\t%.5f' % (col, tmp)
         if tmp > col_ratio or col[-3 : ] == 'raw':
             drop_cols.append(col)
-    print 'drop_col_ratio : %.3f, num of drop cols : %d last cols : %d' % (col_ratio, len(drop_cols), len(cols) - len(drop_cols))
+    # print 'drop_col_ratio : %.3f, num of drop cols : %d last cols : %d' % (col_ratio, len(drop_cols), len(cols) - len(drop_cols))
     df = df.drop(drop_cols, axis = 1)
     for col in drop_cols:
         cols.remove(col)
@@ -174,7 +177,7 @@ def main():
     print 'result cols : ', cols
 
     df_result = train(df_train, weight, label, df_test, cols, best_params)
-    df_result[['manufacturer', 'model', 'serial_number', 'dt']].to_csv(data_path + 'sub_20200301_2.csv', index = False, header = False)
+    df_result[['manufacturer', 'model', 'serial_number', 'dt']].to_csv(data_path + 'sub_20200307_1.csv', index = False, header = False)
     pass
     print 'sepend time : ', time.time() - pre_time
 
