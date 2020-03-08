@@ -188,9 +188,9 @@ def main():
     print 'len(cols) : ', len(cols)
 
     print 'has noweith' + '-' * 50
-    cols = select_fea(df_train, weight, label, cols, df_test, False, 3)
+    cols = select_fea(df_train, weight, label, cols, df_test, False, 4)
     print 'has weith' + '-' * 50
-    cols = select_fea(df_train, weight, label, cols, df_test, True, 4)
+    cols = select_fea(df_train, weight, label, cols, df_test, True, 5)
 
     print 'sepend time : ', time.time() - pre_time
 
