@@ -83,6 +83,7 @@ def get_weight_label(df_train, df_test):
     df_white = df_train[df_train['label'] == 0]
     df_white = df_white.sample(n = min(len(df_white), 5 * len(df_black)), random_state = 2020)
     df_train = pd.concat([df_white, df_black])
+    df_train = df_train.sort_values(by = 'dt')
 
     df_train['temp'] = df_train['dis_day'].apply(lambda x: 0 if x == -1 else 30 - x)
     white_weight = df_train['temp'].sum() * 1.0 / len(df_train[df_train['temp'] == 0])
@@ -152,7 +153,7 @@ def select_fea(df_train, weight, label, cols, df_test = 0, is_weight = False, ou
         else:
             score_kSplit = val_kSplit(df_train, weight, label, temp_cols)
             score_kTime = val_TimeSeriesSplit(df_train, weight, label, temp_cols)
-        print 'col : %s, score_kSplit : %.4f, score_kTime : %.4f' % (col, score_kSplit, score_kTime)
+        print 'col : %s, score_kSplit : %.4f, score_kTime : %.4f\n' % (col, score_kSplit, score_kTime)
         if score_kSplit > best_score_kSplit:
             best_score_kSplit = score_kSplit
             best_score_kTime = score_kTime
@@ -183,15 +184,15 @@ def main():
 
     df_train, df_test, cols = data_process(df_train, df_test, cols, col_ratio = 0.9)
 
-    write_data_csv('df_train_result', df_train)
-    write_data_csv('df_test_result', df_test)
     print 'result cols : ', cols
     print 'len(cols) : ', len(cols)
 
+    print 'has noweith' + '-' * 50
     cols = select_fea(df_train, weight, label, cols, df_test, False, 3)
+    print 'has weith' + '-' * 50
     cols = select_fea(df_train, weight, label, cols, df_test, True, 4)
 
     print 'sepend time : ', time.time() - pre_time
 
 main()
-
+# main_middle()
