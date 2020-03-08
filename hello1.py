@@ -19,7 +19,7 @@ import lightgbm as lgb
 import datetime
 # myself libs
 from read_data import read_data_csv, read_data_pkl, write_data_csv
-from validation import val_lgb
+from validation import val_lgb, val_kSplit, val_TimeSeriesSplit, val_kSplit_weight, val_TimeSeriesSplit_weight
 # other
 pd.set_option('display.max_columns', None)
 import warnings
@@ -38,7 +38,7 @@ def take_sample():
     print df_label.head(3)
     for col in ['manufacturer', 'model', 'serial_number']: df_label[col] = df_label[col].astype(str)
     for day in range(201707, 201713) + range(201801, 201808):
-        # if day <= 201712: continue
+        # if day <= 201806: continue
         df = read_data_csv(data_pre_name + str(day), read_rows)
         print 'raw : ', len(df)
         cnt = df.shape
@@ -48,11 +48,11 @@ def take_sample():
         df = df[df['fault_time'].isna()]
         df = df.sample(n = len(df_positive) * 10, random_state = 2020)
         df = pd.concat([df_positive, df])
-        df.to_csv(data_path + data_pre_name + str(day) + '_sample_pn_v2.csv', index = False)
+        df.to_csv(data_path + data_pre_name + str(day) + '_sample_pn_v3.csv', index = False)
         print 'sample : ', day, cnt, len(df_positive), len(df)
         del df, df_positive
         gc.collect()
-    return df
+    # return df
 
 def read_data():
     read_rows = int(sys.argv[1])
@@ -78,10 +78,18 @@ def get_weight_label(df_train, df_test):
     df_train['dis_day'] = (df_train['broken_day'] - df_train['dt_day']).apply(lambda x: -1 if x < 0 else -1 if x >= 30 else x)
     # print df_train[df_train['dt'] == 20170709][['dt', 'fault_time', 'broken_day', 'dt_day', 'dis_day']].head(10)
     df_train['label'] = df_train['dis_day'].apply(lambda x: 1 if x != -1 else 0)
-    weight = df_train['dis_day'].apply(lambda x: 1 if x == -1 else 30 - x)
+    
+    df_black = df_train[df_train['label'] == 1]
+    df_white = df_train[df_train['label'] == 0]
+    df_white = df_white.sample(n = min(len(df_white), 5 * len(df_black)), random_state = 2020)
+    df_train = pd.concat([df_white, df_black])
+
+    df_train['temp'] = df_train['dis_day'].apply(lambda x: 0 if x == -1 else 30 - x)
+    white_weight = df_train['temp'].sum() * 1.0 / len(df_train[df_train['temp'] == 0])
+    weight = df_train['temp'].apply(lambda x: white_weight if x == 0 else x)
     label = df_train['label']
-    write_data_csv('df_train', df_train)
-    write_data_csv('df_test', df_test)
+    # write_data_csv('df_train_get_weight', df_train)
+    # write_data_csv('df_test_get_weight', df_test)
     return df_train, df_test, weight, label
 
 def get_weight_label_data(read_rows = int(sys.argv[1])):
@@ -93,68 +101,74 @@ def get_weight_label_data(read_rows = int(sys.argv[1])):
 
 def data_process(df_train, df_test, cols, col_ratio = 0.8):
     print '\ndata_process', '-' * 100
-    df = pd.concat([df_train, df_test])
     drop_cols = []
     for col in cols:
-        tmp = df[col].isna().sum() * 1.0 / len(df)
-        print '%s\t%.5f' % (col, tmp)
-        if tmp > col_ratio or col[-3 : ] == 'raw':
+        tmp = df_train[col].isna().sum() * 1.0 / len(df_train)
+        if tmp > col_ratio or col[-5 : ] == 'lized':
             drop_cols.append(col)
     # print 'drop_col_ratio : %.3f, num of drop cols : %d last cols : %d' % (col_ratio, len(drop_cols), len(cols) - len(drop_cols))
-    df = df.drop(drop_cols, axis = 1)
+    df_train = df_train.drop(drop_cols, axis = 1)
+    df_test = df_test.drop(drop_cols, axis = 1)
     for col in drop_cols:
         cols.remove(col)
     for col in cols:
-        df[col] = df[col].astype(np.float64)
-        df[col] = df[col].fillna(df[col].mean())
+        df_train[col] = df_train[col].astype(np.float64).fillna(df_train[col].mean())
+        df_test[col] = df_test[col].astype(np.float64).fillna(df_train[col].mean())
     stand = StandardScaler() # normalize
-    datas = df[cols].values
-    datas = stand.fit_transform(datas)
-    df_tmp = pd.DataFrame(datas, columns = cols)
-    df = pd.concat([df.drop(cols, axis = 1).reset_index(drop = True), df_tmp], axis = 1)
+    df_tmp = pd.DataFrame(stand.fit_transform(df_train[cols]), columns = cols)
+    df_train = pd.concat([df_train.drop(cols, axis = 1).reset_index(drop = True), df_tmp], axis = 1)
 
-    df_train = df.iloc[: len(df_train), :]   
-    df_test = df.iloc[len(df_train) : , :]   
-    print cols
+    df_tmp = pd.DataFrame(stand.transform(df_test[cols]), columns = cols)
+    df_test = pd.concat([df_test.drop(cols, axis = 1).reset_index(drop = True), df_tmp], axis = 1)
     return df_train, df_test, cols
 
-def train(df_train, weight, label, df_test, cols, best_params):
-    print '\ntrain' + '-' * 100
-    clf = lgb.LGBMClassifier(boosting_type='gbdt', n_estimators=600, **best_params)
-    clf.fit(X = df_train[cols], y = label, sample_weight = weight)
+def train(df_train, weight, label, df_test, cols, is_weight, out_id):
+    # print '\ntrain' + '-' * 100
+    # clf = lgb.LGBMClassifier(boosting_type='gbdt', n_estimators=600, **best_params)
+    clf = lgb.LGBMClassifier()
+    if is_weight == True:
+        clf.fit(X = df_train[cols], y = label , sample_weight = weight)
+    else:
+        clf.fit(X = df_train[cols], y = label)
     pred = clf.predict(df_test[cols])
     df_test['pred'] = pred
-    print 'test Counter :', Counter(df_test['pred'].tolist())
     df_test = df_test[df_test['pred'] == 1]
+    df_test[['manufacturer', 'model', 'serial_number', 'dt']].to_csv(data_path + 'sub_20200308_' + str(out_id) + '.csv', index = False, header = False)
     return df_test
 
-def select_fea(df_train, weight, label, cols, df_test = 0):
-    params, best_score = val_lgb(df_train, weight, label, cols)
-    df_result = train(df_train, weight, label, df_test, cols, params)
-    df_result[['manufacturer', 'model', 'serial_number', 'dt']].to_csv(data_path + 'sub_20200301_1.csv', index = False, header = False)
+def select_fea(df_train, weight, label, cols, df_test = 0, is_weight = False, out_id = 3):
+    best_score_kSplit = val_kSplit(df_train, weight, label, cols)
+    best_score_kTime = val_TimeSeriesSplit(df_train, weight, label, cols)
+    # df_result = train(df_train, weight, label, df_test, cols, is_weight = False, out_id = 3)
     # best_score = 10
     # params = {}
     pre_cols = [x for x in cols]
     for col in cols:
-        print '\ncol : %s\n', col
         temp_cols = [x for x in pre_cols]
         temp_cols.remove(col)
-        params, score = val_lgb(df_train, weight, label, temp_cols)
-        if score < best_score:
-            best_score = score
+        if is_weight == True:
+            score_kSplit = val_kSplit_weight(df_train, weight, label, temp_cols)
+            score_kTime = val_TimeSeriesSplit_weight(df_train, weight, label, temp_cols)
+        else:
+            score_kSplit = val_kSplit(df_train, weight, label, temp_cols)
+            score_kTime = val_TimeSeriesSplit(df_train, weight, label, temp_cols)
+        print 'col : %s, score_kSplit : %.4f, score_kTime : %.4f' % (col, score_kSplit, score_kTime)
+        if score_kSplit > best_score_kSplit:
+            best_score_kSplit = score_kSplit
+            best_score_kTime = score_kTime
             pre_cols.remove(col)
-            df_result = train(df_train, weight, label, df_test, pre_cols, params)
-            df_result[['manufacturer', 'model', 'serial_number', 'dt']].to_csv(data_path + 'sub_20200301_1.csv', index = False, header = False)
-        break
-    params, best_score = val_lgb(df_train, weight, label, cols)
-    print 'cols change : ', len(cols), len(pre_cols)
-    print 'score :', best_score
-    return pre_cols, params
+            # df_result = train(df_train, weight, label, df_test, temp_cols)
+    print '\nbest score_kSplit : %.4f, score_kTime : %.4f\n' % (best_score_kSplit, best_score_kTime)
+    train(df_train, weight, label, df_test, cols, is_weight, out_id)
+    print 'pre_cols : ', pre_cols
+    print 'len(cols) : ', len(pre_cols)
+    return pre_cols
 
 def main():
     pre_time = time.time()
-    take_sample()
+    # take_sample()
     df_train, df_test = read_data()
+
     print 'df_train.shape, df_test.shap : ', df_train.shape, df_test.shape
     # df_train, df_test, weight, label = get_weight_label_data()
     cols = df_test.columns.tolist()
@@ -162,23 +176,22 @@ def main():
     for col in key_cols:
         if col in cols: cols.remove(col)
     df_train, df_test, weight, label = get_weight_label(df_train, df_test)
-    print 'sum of weight : %d' % np.sum(weight)
-    print 'sepend time : ', time.time() - pre_time
+    print 'df_train.shape, df_test.shap : ', df_train.shape, df_test.shape
+    print 'weight of black %d, white : %d' % (np.sum(weight[df_train['label'] == 1]), np.sum(weight[df_train['label'] == 0]))
     print 'label.unique', Counter(label.tolist())
+    print 'sepend time : ', time.time() - pre_time
 
-    df_train = df_train[key_cols + cols]
-    df_test = df_test[key_cols + cols]
     df_train, df_test, cols = data_process(df_train, df_test, cols, col_ratio = 0.9)
-    # df_result = train(df_train, df_test, cols, weight, label)
-    cols, best_params = select_fea(df_train, weight, label, cols, df_test)
 
     write_data_csv('df_train_result', df_train)
     write_data_csv('df_test_result', df_test)
     print 'result cols : ', cols
+    print 'len(cols) : ', len(cols)
 
-    df_result = train(df_train, weight, label, df_test, cols, best_params)
-    df_result[['manufacturer', 'model', 'serial_number', 'dt']].to_csv(data_path + 'sub_20200307_1.csv', index = False, header = False)
-    pass
+    cols = select_fea(df_train, weight, label, cols, df_test, False, 3)
+    cols = select_fea(df_train, weight, label, cols, df_test, True, 4)
+
     print 'sepend time : ', time.time() - pre_time
 
 main()
+

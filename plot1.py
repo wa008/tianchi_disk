@@ -8,6 +8,7 @@ import sys
 import gc
 from tqdm import tqdm
 # machine learning
+import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder
@@ -29,28 +30,24 @@ pd.set_option('display.max_rows', None)
 data_path = r'D:\kaggle\data\tianchi_disk\a'[: -1]
 print 'data_path :', data_path
 
-def read_data():
-    read_rows = int(sys.argv[1])
-    if read_rows > 0:
-        return read_data_csv('disk_sample_smart_log_201803', read_rows)
+def dropna_ratio(day):
     data_pre_name = 'disk_sample_smart_log_'
-    df = read_data_csv(data_pre_name + '201707')
-    for day in range(201708, 201713) + range(201801, 201808):
-        df_temp = read_data_csv(data_pre_name + str(day), -1)
-        df = pd.concat([df, df_temp])
-    return df
+    data_name = data_pre_name + str(day) + '.csv'
+    df = pd.read_csv(data_path + data_name).sample(frac = 0.5, random_state = 2020)
+    cnt = len(df)
+    x = df.isna()
+    del df
+    gc.collect()
+    x = x.sum() * 1.0 / cnt
+    plt.hist(x = x, bins = 20)
+    plt.title(str(day) + "_" + str((x < 0.2).sum()))
+    plt.savefig('./picture/' + str(day) + '.jpg')
 
-def data_process(df):
-    temp = []
-    for col in df.columns.values:
-        temp.append([df[col].isna().sum() * 1.0 / len(df), col])
-    temp = sorted(temp, reverse = True)
-    for x in temp:
-        print x[0], x[1]
-    pass
+    del x
+    gc.collect()
 
 def main():
-    df = read_data()
-    pass
+    for day in range(201707, 201713) + range(201801, 201808):
+        dropna_ratio(day)
 
 main()

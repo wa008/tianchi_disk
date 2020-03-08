@@ -11,7 +11,8 @@ from tqdm import tqdm
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder, StandardScaler
-from sklearn.metrics import mean_absolute_error, roc_auc_score, f1_score, make_scorer
+from sklearn.model_selection import cross_val_score, KFold
+from sklearn.metrics import mean_absolute_error, roc_auc_score, f1_score, make_scorer, precision_score, recall_score
 from collections import Counter
 from sklearn.model_selection import GroupKFold, KFold, TimeSeriesSplit
 from hyperopt import fmin, tpe, hp, STATUS_OK, Trials, space_eval
@@ -95,11 +96,75 @@ def val_lgb(X, weight_param, y, cols = [], params={}):
     print 'f1_score : ', f1_score, '\n'
     return best_params, f1_score
 
-def main():
-    pre_time = time.time()
-    global X_train, y_train, weight, cols
-    X_train, y_train = df_train[col], df_train['label'].values
 
-    print 'sepend time : ', time.time() - pre_time
+def val_kSplit(X_train, weight, y_train, cols):
+    kf = KFold(n_splits=5)
+    f1_score_all = 0
+    for tr_idx, val_idx in kf.split(X_train):
+        X_tr, X_vl = X_train.iloc[tr_idx, :], X_train.iloc[val_idx, :]
+        y_tr, y_vl = y_train.iloc[tr_idx], y_train.iloc[val_idx]
+        clf = lgb.LGBMClassifier()
+        clf.fit(X_tr[cols], y_tr)
+        pred = clf.predict(X_vl[cols])
+        tp = np.sum((pred) & (y_vl))
+        zhun, zhao = tp / np.sum(pred), tp / np.sum(y_vl)
+        print '\nzhun : %.4f, zhao : %.4f, f1_score : %.4f' % (zhun, zhao, 2 * zhun * zhao / (zhun + zhao))
+        score_precision = precision_score(y_true = y_vl, y_pred = pred)
+        score_recall = recall_score(y_true = y_vl, y_pred = pred)
+        f1_score = f1_socre(y_true = y_vl, y_pred = pred)
+        f1_score_all += f1_score
+        print 'precision : %.4f, recall : %.4f, f1_score : %.4f' % (score_precision, score_precision, f1_score)
+    print '\n'
+    return f1_score_all
 
-# main()
+def val_TimeSeriesSplit(X_train, weight, y_train, cols):
+    FOLDS = 5
+    tss = TimeSeriesSplit(n_splits=FOLDS)
+    score_all = 0
+    for tr_idx, val_idx in tss.split(X_train, y_train):
+        clf = lgb.LGBMClassifier()
+        X_tr, X_vl = X_train[cols].iloc[tr_idx, :], X_train[cols].iloc[val_idx, :]
+        y_tr, y_vl = y_train.iloc[tr_idx], y_train.iloc[val_idx]
+        weight_tr, weight_vl = weight.iloc[tr_idx], weight.iloc[val_idx]
+        clf.fit(X_tr[cols], y_tr)
+        pred = clf.predict(X_vl[cols])
+        score_all += (f1_score(y_pred = pred, y_true = y_vl))
+    # print 'Mean f1_score : ', score_mean * 1.0 / FOLDS, '\n'
+    return score_all / 5
+
+def val_kSplit_weight(X_train, weight, y_train, cols):
+    kf = KFold(n_splits=5)
+    f1_score_all = 0
+    for tr_idx, val_idx in kf.split(X_train):
+        X_tr, X_vl = X_train.iloc[tr_idx, :], X_train.iloc[val_idx, :]
+        y_tr, y_vl = y_train.iloc[tr_idx], y_train.iloc[val_idx]
+        weight_tr, weight_vl = weight.iloc[tr_idx], weight.iloc[val_idx]
+        clf = lgb.LGBMClassifier()
+        clf.fit(X_tr[cols], y_tr, sample_weight = weight_tr)
+        pred = clf.predict(X_vl[cols])
+        tp = np.sum((pred) & (y_vl))
+        zhun, zhao = tp / np.sum(pred), tp / np.sum(y_vl)
+        print '\nzhun : %.4f, zhao : %.4f, f1_score : %.4f' % (zhun, zhao, 2 * zhun * zhao / (zhun + zhao))
+        score_precision = precision_score(y_true = y_vl, y_pred = pred)
+        score_recall = recall_score(y_true = y_vl, y_pred = pred)
+        f1_score = f1_socre(y_true = y_vl, y_pred = pred)
+        f1_score_all += f1_score
+        print 'precision : %.4f, recall : %.4f, f1_score : %.4f' % (score_precision, score_recall, f1_score)
+    print '\n'
+    return f1_score / 5
+
+def val_TimeSeriesSplit_weight(X_train, weight, y_train, cols):
+    FOLDS = 5
+    tss = TimeSeriesSplit(n_splits=FOLDS)
+    score_mean = 0
+    for tr_idx, val_idx in tss.split(X_train, y_train):
+        clf = lgb.LGBMClassifier()
+        X_tr, X_vl = X_train.iloc[tr_idx, :], X_train.iloc[val_idx, :]
+        y_tr, y_vl = y_train.iloc[tr_idx], y_train.iloc[val_idx]
+        weight_tr, weight_vl = weight.iloc[tr_idx], weight.iloc[val_idx]
+        clf.fit(X_tr[cols], y_tr, sample_weight = weight)
+        pred = clf.predict(X_vl[cols])
+        score = f1_score(y_pred = pred, y_true = y_vl)
+        score_mean += score
+    return score_mean / FOLDS
+
