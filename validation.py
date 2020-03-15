@@ -111,7 +111,7 @@ def val_kSplit(X_train, weight, y_train, cols):
         score_f1 = f1_score(y_true = y_vl, y_pred = pred)
         f1_score_all += score_f1
         print 'precision : %.4f, recall : %.4f, f1_score : %.4f' % (score_precision, score_recall, score_f1)
-    print '\n'
+    print ''
     return f1_score_all / 5
 
 def val_TimeSeriesSplit(X_train, weight, y_train, cols):
@@ -144,7 +144,7 @@ def val_kSplit_weight(X_train, weight, y_train, cols):
         score_f1 = f1_score(y_true = y_vl, y_pred = pred)
         f1_score_all += score_f1
         print 'precision : %.4f, recall : %.4f, f1_score : %.4f' % (score_precision, score_recall, score_f1)
-    print '\n'
+    print ''
     return f1_score_all / 5
 
 def val_TimeSeriesSplit_weight(X_train, weight, y_train, cols):

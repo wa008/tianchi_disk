@@ -1,0 +1,37 @@
+test.py
+data_path : D:\kaggle\data\tianchi_disk\
+data_path : D:\kaggle\data\tianchi_disk\
+201707 (129701, 516)
+201708 (372119, 516)
+201709 (595045, 516)
+201710 (826694, 516)
+201711 (1044560, 516)
+201712 (1282160, 516)
+201801 (1521179, 516)
+201802 (1705737, 516)
+201803 (1877623, 516)
+201804 (2013209, 516)
+201805 (2120657, 516)
+201806 (2192399, 516)
+201807 (2221725, 516)
+df_train.shape, df_test.shap :  (2221725, 516) (178096, 514)
+
+get_weight_label ----------------------------------------------------------------------------------------------------
+dt, fault_time isna :  0 2019750
+df_train.shape, df_test.shap :  (1126637, 521) (178096, 514)
+weight of black 495125, white : 495124
+label.unique Counter({0L: 1095089, 1L: 31548})
+sepend time :  351.974999905
+
+data_process ----------------------------------------------------------------------------------------------------
+result cols :  ['smart_1raw', 'smart_3raw', 'smart_4raw', 'smart_5raw', 'smart_7raw', 'smart_9raw', 'smart_10raw', 'smart_12raw', 'smart_184raw', 'smart_187raw', 'smart_188raw', 'smart_189raw', 'smart_190raw', 'smart_191raw', 'smart_192raw', 'smart_193raw', 'smart_194raw', 'smart_195raw', 'smart_197raw', 'smart_198raw', 'smart_199raw', 'smart_240raw', 'smart_241raw', 'smart_242raw']
+len(cols) :  24
+[LightGBM] [Warning] Unknown parameter categorical_column=
+precision : 0.7645, recall : 0.0706, f1_score : 0.1292
+precision : 0.7318, recall : 0.0678, f1_score : 0.1241
+precision : 0.7165, recall : 0.0670, f1_score : 0.1226
+precision : 0.7946, recall : 0.0702, f1_score : 0.1291
+precision : 0.7923, recall : 0.0678, f1_score : 0.1250
+
+
+score_kSplit : 0.1260, score_kTime : 0.0317

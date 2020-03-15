@@ -1,0 +1,397 @@
+test.py
+data_path : D:\kaggle\data\tianchi_disk\
+data_path : D:\kaggle\data\tianchi_disk\
+201707 (129701, 516)
+201708 (372119, 516)
+201709 (595045, 516)
+201710 (826694, 516)
+201711 (1044560, 516)
+201712 (1282160, 516)
+201801 (1521179, 516)
+201802 (1705737, 516)
+201803 (1877623, 516)
+201804 (2013209, 516)
+201805 (2120657, 516)
+201806 (2192399, 516)
+201807 (2221725, 516)
+df_train.shape, df_test.shap :  (2221725, 516) (178096, 514)
+
+get_weight_label ----------------------------------------------------------------------------------------------------
+dt, fault_time isna :  0 2019750
+df_train.shape, df_test.shap :  (1126637, 521) (178096, 514)
+weight of black 495125, white : 495124
+label.unique Counter({0L: 1095089, 1L: 31548})
+get_data sepend time :  350.4150002
+
+data_process ----------------------------------------------------------------------------------------------------
+result cols :  ['smart_1raw', 'smart_3raw', 'smart_4raw', 'smart_5raw', 'smart_7raw', 'smart_9raw', 'smart_10raw', 'smart_12raw', 'smart_184raw', 'smart_187raw', 'smart_188raw', 'smart_189raw', 'smart_190raw', 'smart_191raw', 'smart_192raw', 'smart_193raw', 'smart_194raw', 'smart_195raw', 'smart_197raw', 'smart_198raw', 'smart_199raw', 'smart_240raw', 'smart_241raw', 'smart_242raw']
+len(cols) :  24
+[LightGBM] [Warning] Unknown parameter categorical_column=
+precision : 0.7645, recall : 0.0706, f1_score : 0.1292
+precision : 0.7318, recall : 0.0678, f1_score : 0.1241
+precision : 0.7165, recall : 0.0670, f1_score : 0.1226
+precision : 0.7946, recall : 0.0702, f1_score : 0.1291
+precision : 0.7923, recall : 0.0678, f1_score : 0.1250
+
+score_kSplit : 0.1260, score_kTime : 0.0317, val once sepend time : 18.90
+has no weith--------------------------------------------------
+precision : 0.7645, recall : 0.0706, f1_score : 0.1292
+precision : 0.7318, recall : 0.0678, f1_score : 0.1241
+precision : 0.7165, recall : 0.0670, f1_score : 0.1226
+precision : 0.7946, recall : 0.0702, f1_score : 0.1291
+precision : 0.7923, recall : 0.0678, f1_score : 0.1250
+
+precision : 0.7645, recall : 0.0706, f1_score : 0.1292
+precision : 0.7318, recall : 0.0678, f1_score : 0.1241
+precision : 0.7165, recall : 0.0670, f1_score : 0.1226
+precision : 0.7946, recall : 0.0702, f1_score : 0.1291
+precision : 0.7923, recall : 0.0678, f1_score : 0.1250
+
+col : smart_3raw, score_kSplit : 0.1260, score_kTime : 0.0317
+
+precision : 0.7651, recall : 0.0698, f1_score : 0.1280
+precision : 0.7326, recall : 0.0677, f1_score : 0.1239
+precision : 0.7197, recall : 0.0677, f1_score : 0.1237
+precision : 0.7954, recall : 0.0712, f1_score : 0.1307
+precision : 0.7961, recall : 0.0700, f1_score : 0.1287
+
+col : smart_4raw, score_kSplit : 0.1270, score_kTime : 0.0321
+
+precision : 0.8253, recall : 0.0579, f1_score : 0.1082
+precision : 0.7871, recall : 0.0527, f1_score : 0.0989
+precision : 0.7701, recall : 0.0747, f1_score : 0.1361
+precision : 0.8007, recall : 0.0781, f1_score : 0.1422
+precision : 0.7092, recall : 0.0664, f1_score : 0.1215
+
+col : smart_5raw, score_kSplit : 0.1214, score_kTime : 0.0356
+
+precision : 0.7919, recall : 0.0717, f1_score : 0.1314
+precision : 0.7431, recall : 0.0686, f1_score : 0.1256
+precision : 0.7938, recall : 0.0626, f1_score : 0.1161
+precision : 0.8049, recall : 0.0624, f1_score : 0.1159
+precision : 0.7973, recall : 0.0656, f1_score : 0.1213
+
+col : smart_7raw, score_kSplit : 0.1221, score_kTime : 0.0385
+
+precision : 0.7517, recall : 0.0668, f1_score : 0.1226
+precision : 0.7185, recall : 0.0622, f1_score : 0.1145
+precision : 0.7313, recall : 0.0638, f1_score : 0.1173
+precision : 0.7823, recall : 0.0618, f1_score : 0.1146
+precision : 0.7770, recall : 0.0543, f1_score : 0.1015
+
+col : smart_9raw, score_kSplit : 0.1141, score_kTime : 0.0289
+
+precision : 0.7651, recall : 0.0698, f1_score : 0.1280
+precision : 0.7326, recall : 0.0677, f1_score : 0.1239
+precision : 0.7197, recall : 0.0677, f1_score : 0.1237
+precision : 0.7954, recall : 0.0712, f1_score : 0.1307
+precision : 0.7961, recall : 0.0700, f1_score : 0.1287
+
+col : smart_10raw, score_kSplit : 0.1270, score_kTime : 0.0321
+
+precision : 0.8145, recall : 0.0706, f1_score : 0.1299
+precision : 0.7157, recall : 0.0678, f1_score : 0.1239
+precision : 0.7862, recall : 0.0592, f1_score : 0.1101
+precision : 0.7880, recall : 0.0693, f1_score : 0.1274
+precision : 0.7853, recall : 0.0691, f1_score : 0.1270
+
+col : smart_12raw, score_kSplit : 0.1237, score_kTime : 0.0330
+
+precision : 0.7608, recall : 0.0648, f1_score : 0.1194
+precision : 0.7131, recall : 0.0697, f1_score : 0.1271
+precision : 0.7435, recall : 0.0698, f1_score : 0.1276
+precision : 0.7986, recall : 0.0720, f1_score : 0.1321
+precision : 0.7836, recall : 0.0678, f1_score : 0.1249
+
+col : smart_184raw, score_kSplit : 0.1262, score_kTime : 0.0321
+
+precision : 0.7800, recall : 0.0727, f1_score : 0.1331
+precision : 0.7362, recall : 0.0685, f1_score : 0.1253
+precision : 0.7279, recall : 0.0722, f1_score : 0.1314
+precision : 0.7905, recall : 0.0715, f1_score : 0.1312
+precision : 0.7918, recall : 0.0700, f1_score : 0.1287
+
+col : smart_187raw, score_kSplit : 0.1299, score_kTime : 0.0373
+
+precision : 0.7521, recall : 0.0683, f1_score : 0.1252
+precision : 0.7322, recall : 0.0710, f1_score : 0.1295
+precision : 0.7359, recall : 0.0530, f1_score : 0.0989
+precision : 0.7984, recall : 0.0644, f1_score : 0.1191
+precision : 0.8107, recall : 0.0573, f1_score : 0.1070
+
+col : smart_188raw, score_kSplit : 0.1159, score_kTime : 0.0264
+
+precision : 0.7590, recall : 0.0709, f1_score : 0.1297
+precision : 0.7375, recall : 0.0685, f1_score : 0.1253
+precision : 0.7322, recall : 0.0721, f1_score : 0.1312
+precision : 0.8022, recall : 0.0698, f1_score : 0.1284
+precision : 0.7768, recall : 0.0696, f1_score : 0.1277
+
+col : smart_189raw, score_kSplit : 0.1284, score_kTime : 0.0379
+
+precision : 0.7800, recall : 0.0727, f1_score : 0.1331
+precision : 0.7424, recall : 0.0707, f1_score : 0.1291
+precision : 0.7286, recall : 0.0721, f1_score : 0.1311
+precision : 0.7905, recall : 0.0715, f1_score : 0.1312
+precision : 0.7918, recall : 0.0700, f1_score : 0.1287
+
+col : smart_190raw, score_kSplit : 0.1306, score_kTime : 0.0373
+
+precision : 0.7619, recall : 0.0735, f1_score : 0.1341
+precision : 0.7425, recall : 0.0675, f1_score : 0.1238
+precision : 0.7082, recall : 0.0758, f1_score : 0.1369
+precision : 0.7743, recall : 0.0699, f1_score : 0.1283
+precision : 0.8036, recall : 0.0631, f1_score : 0.1170
+
+col : smart_191raw, score_kSplit : 0.1280, score_kTime : 0.0369
+
+precision : 0.7662, recall : 0.0723, f1_score : 0.1321
+precision : 0.7217, recall : 0.0694, f1_score : 0.1267
+precision : 0.7451, recall : 0.0737, f1_score : 0.1341
+precision : 0.7724, recall : 0.0659, f1_score : 0.1215
+precision : 0.7910, recall : 0.0691, f1_score : 0.1271
+
+col : smart_192raw, score_kSplit : 0.1283, score_kTime : 0.0336
+
+precision : 0.7539, recall : 0.0661, f1_score : 0.1216
+precision : 0.7767, recall : 0.0770, f1_score : 0.1400
+precision : 0.7246, recall : 0.0638, f1_score : 0.1172
+precision : 0.8025, recall : 0.0621, f1_score : 0.1153
+precision : 0.7640, recall : 0.0642, f1_score : 0.1185
+
+col : smart_193raw, score_kSplit : 0.1225, score_kTime : 0.0339
+
+precision : 0.7748, recall : 0.0717, f1_score : 0.1312
+precision : 0.7268, recall : 0.0691, f1_score : 0.1262
+precision : 0.7449, recall : 0.0712, f1_score : 0.1300
+precision : 0.7709, recall : 0.0659, f1_score : 0.1215
+precision : 0.7682, recall : 0.0715, f1_score : 0.1307
+
+col : smart_194raw, score_kSplit : 0.1279, score_kTime : 0.0367
+
+precision : 0.7800, recall : 0.0727, f1_score : 0.1331
+precision : 0.7424, recall : 0.0707, f1_score : 0.1291
+precision : 0.7286, recall : 0.0721, f1_score : 0.1311
+precision : 0.7905, recall : 0.0715, f1_score : 0.1312
+precision : 0.7918, recall : 0.0700, f1_score : 0.1287
+
+col : smart_195raw, score_kSplit : 0.1306, score_kTime : 0.0373
+
+precision : 0.7800, recall : 0.0727, f1_score : 0.1331
+precision : 0.7424, recall : 0.0707, f1_score : 0.1291
+precision : 0.7291, recall : 0.0709, f1_score : 0.1293
+precision : 0.7960, recall : 0.0690, f1_score : 0.1269
+precision : 0.7918, recall : 0.0700, f1_score : 0.1287
+
+col : smart_197raw, score_kSplit : 0.1294, score_kTime : 0.0382
+
+precision : 0.7800, recall : 0.0727, f1_score : 0.1331
+precision : 0.7182, recall : 0.0670, f1_score : 0.1226
+precision : 0.7286, recall : 0.0721, f1_score : 0.1311
+precision : 0.7879, recall : 0.0663, f1_score : 0.1222
+precision : 0.7944, recall : 0.0669, f1_score : 0.1234
+
+col : smart_198raw, score_kSplit : 0.1265, score_kTime : 0.0361
+
+precision : 0.7711, recall : 0.0712, f1_score : 0.1304
+precision : 0.7756, recall : 0.0776, f1_score : 0.1411
+precision : 0.7269, recall : 0.0628, f1_score : 0.1156
+precision : 0.8037, recall : 0.0763, f1_score : 0.1394
+precision : 0.7782, recall : 0.0696, f1_score : 0.1277
+
+col : smart_199raw, score_kSplit : 0.1308, score_kTime : 0.0335
+
+precision : 0.7711, recall : 0.0712, f1_score : 0.1304
+precision : 0.7756, recall : 0.0776, f1_score : 0.1411
+precision : 0.7269, recall : 0.0628, f1_score : 0.1156
+precision : 0.8037, recall : 0.0763, f1_score : 0.1394
+precision : 0.7782, recall : 0.0696, f1_score : 0.1277
+
+col : smart_240raw, score_kSplit : 0.1308, score_kTime : 0.0335
+
+precision : 0.8125, recall : 0.0637, f1_score : 0.1181
+precision : 0.7749, recall : 0.0773, f1_score : 0.1405
+precision : 0.7342, recall : 0.0719, f1_score : 0.1310
+precision : 0.8060, recall : 0.0596, f1_score : 0.1109
+precision : 0.7984, recall : 0.0630, f1_score : 0.1167
+
+col : smart_241raw, score_kSplit : 0.1235, score_kTime : 0.0293
+
+precision : 0.7159, recall : 0.0668, f1_score : 0.1221
+precision : 0.7283, recall : 0.0701, f1_score : 0.1278
+precision : 0.7002, recall : 0.0714, f1_score : 0.1296
+precision : 0.8207, recall : 0.0744, f1_score : 0.1364
+precision : 0.7996, recall : 0.0659, f1_score : 0.1218
+
+col : smart_242raw, score_kSplit : 0.1276, score_kTime : 0.0340
+
+
+best score_kSplit : 0.1308, score_kTime : 0.0335
+
+pre_cols :  ['smart_1raw', 'smart_3raw', 'smart_5raw', 'smart_7raw', 'smart_9raw', 'smart_10raw', 'smart_12raw', 'smart_184raw', 'smart_188raw', 'smart_189raw', 'smart_191raw', 'smart_192raw', 'smart_193raw', 'smart_194raw', 'smart_195raw', 'smart_197raw', 'smart_198raw', 'smart_240raw', 'smart_241raw', 'smart_242raw']
+len(cols) :  20
+has weith--------------------------------------------------
+precision : 0.7711, recall : 0.0712, f1_score : 0.1304
+precision : 0.7756, recall : 0.0776, f1_score : 0.1411
+precision : 0.7269, recall : 0.0628, f1_score : 0.1156
+precision : 0.8037, recall : 0.0763, f1_score : 0.1394
+precision : 0.7782, recall : 0.0696, f1_score : 0.1277
+
+precision : 0.1008, recall : 0.6527, f1_score : 0.1746
+precision : 0.0911, recall : 0.6460, f1_score : 0.1597
+precision : 0.0917, recall : 0.6134, f1_score : 0.1596
+precision : 0.0980, recall : 0.6152, f1_score : 0.1691
+precision : 0.0971, recall : 0.6179, f1_score : 0.1678
+
+col : smart_3raw, score_kSplit : 0.1662, score_kTime : 0.1790
+
+precision : 0.0795, recall : 0.5949, f1_score : 0.1402
+precision : 0.0714, recall : 0.5987, f1_score : 0.1276
+precision : 0.0709, recall : 0.5851, f1_score : 0.1265
+precision : 0.0753, recall : 0.5949, f1_score : 0.1336
+precision : 0.0763, recall : 0.5666, f1_score : 0.1346
+
+col : smart_5raw, score_kSplit : 0.1325, score_kTime : 0.1333
+
+precision : 0.1023, recall : 0.6276, f1_score : 0.1759
+precision : 0.1033, recall : 0.5891, f1_score : 0.1757
+precision : 0.0946, recall : 0.6065, f1_score : 0.1637
+precision : 0.0923, recall : 0.6163, f1_score : 0.1605
+precision : 0.0959, recall : 0.5941, f1_score : 0.1652
+
+col : smart_7raw, score_kSplit : 0.1682, score_kTime : 0.1740
+
+precision : 0.1000, recall : 0.6085, f1_score : 0.1718
+precision : 0.1002, recall : 0.5974, f1_score : 0.1717
+precision : 0.0920, recall : 0.5860, f1_score : 0.1590
+precision : 0.1022, recall : 0.5968, f1_score : 0.1745
+precision : 0.0961, recall : 0.5985, f1_score : 0.1657
+
+col : smart_9raw, score_kSplit : 0.1685, score_kTime : 0.1802
+
+precision : 0.1000, recall : 0.6085, f1_score : 0.1718
+precision : 0.1002, recall : 0.5974, f1_score : 0.1717
+precision : 0.0920, recall : 0.5860, f1_score : 0.1590
+precision : 0.1022, recall : 0.5968, f1_score : 0.1745
+precision : 0.0961, recall : 0.5985, f1_score : 0.1657
+
+col : smart_10raw, score_kSplit : 0.1685, score_kTime : 0.1802
+
+precision : 0.1044, recall : 0.6086, f1_score : 0.1782
+precision : 0.0943, recall : 0.5948, f1_score : 0.1628
+precision : 0.0891, recall : 0.5955, f1_score : 0.1550
+precision : 0.1005, recall : 0.5992, f1_score : 0.1721
+precision : 0.0956, recall : 0.6001, f1_score : 0.1650
+
+col : smart_12raw, score_kSplit : 0.1666, score_kTime : 0.1780
+
+precision : 0.1004, recall : 0.6051, f1_score : 0.1722
+precision : 0.1003, recall : 0.5969, f1_score : 0.1717
+precision : 0.0893, recall : 0.6030, f1_score : 0.1555
+precision : 0.0992, recall : 0.6164, f1_score : 0.1709
+precision : 0.0961, recall : 0.5985, f1_score : 0.1657
+
+col : smart_184raw, score_kSplit : 0.1672, score_kTime : 0.1798
+
+precision : 0.1031, recall : 0.5927, f1_score : 0.1757
+precision : 0.0921, recall : 0.5791, f1_score : 0.1589
+precision : 0.0925, recall : 0.5721, f1_score : 0.1592
+precision : 0.1001, recall : 0.5717, f1_score : 0.1704
+precision : 0.0882, recall : 0.5927, f1_score : 0.1535
+
+col : smart_188raw, score_kSplit : 0.1636, score_kTime : 0.1761
+
+precision : 0.1045, recall : 0.6117, f1_score : 0.1785
+precision : 0.0985, recall : 0.6013, f1_score : 0.1692
+precision : 0.0914, recall : 0.5978, f1_score : 0.1585
+precision : 0.1024, recall : 0.6026, f1_score : 0.1750
+precision : 0.0982, recall : 0.6020, f1_score : 0.1688
+
+col : smart_189raw, score_kSplit : 0.1700, score_kTime : 0.1779
+
+precision : 0.0995, recall : 0.6285, f1_score : 0.1718
+precision : 0.0938, recall : 0.6115, f1_score : 0.1626
+precision : 0.0919, recall : 0.6059, f1_score : 0.1596
+precision : 0.0989, recall : 0.6002, f1_score : 0.1697
+precision : 0.0924, recall : 0.6012, f1_score : 0.1602
+
+col : smart_191raw, score_kSplit : 0.1648, score_kTime : 0.1776
+
+precision : 0.0978, recall : 0.6071, f1_score : 0.1684
+precision : 0.0934, recall : 0.6101, f1_score : 0.1619
+precision : 0.0821, recall : 0.6194, f1_score : 0.1449
+precision : 0.0907, recall : 0.6249, f1_score : 0.1584
+precision : 0.0873, recall : 0.6143, f1_score : 0.1529
+
+col : smart_192raw, score_kSplit : 0.1573, score_kTime : 0.1814
+
+precision : 0.1120, recall : 0.5688, f1_score : 0.1872
+precision : 0.0985, recall : 0.5960, f1_score : 0.1690
+precision : 0.1004, recall : 0.5953, f1_score : 0.1718
+precision : 0.1040, recall : 0.5933, f1_score : 0.1770
+precision : 0.1011, recall : 0.5782, f1_score : 0.1722
+
+col : smart_193raw, score_kSplit : 0.1754, score_kTime : 0.1828
+
+precision : 0.1119, recall : 0.5981, f1_score : 0.1885
+precision : 0.1023, recall : 0.5907, f1_score : 0.1744
+precision : 0.1002, recall : 0.5844, f1_score : 0.1710
+precision : 0.1018, recall : 0.5929, f1_score : 0.1737
+precision : 0.0994, recall : 0.5919, f1_score : 0.1702
+
+col : smart_194raw, score_kSplit : 0.1756, score_kTime : 0.1843
+
+precision : 0.1119, recall : 0.5981, f1_score : 0.1885
+precision : 0.1023, recall : 0.5907, f1_score : 0.1744
+precision : 0.1002, recall : 0.5844, f1_score : 0.1710
+precision : 0.1018, recall : 0.5929, f1_score : 0.1737
+precision : 0.0994, recall : 0.5919, f1_score : 0.1702
+
+col : smart_195raw, score_kSplit : 0.1756, score_kTime : 0.1843
+
+precision : 0.1119, recall : 0.5981, f1_score : 0.1885
+precision : 0.1023, recall : 0.5907, f1_score : 0.1744
+precision : 0.1002, recall : 0.5844, f1_score : 0.1710
+precision : 0.1018, recall : 0.5929, f1_score : 0.1737
+precision : 0.0994, recall : 0.5919, f1_score : 0.1702
+
+col : smart_197raw, score_kSplit : 0.1756, score_kTime : 0.1839
+
+precision : 0.1119, recall : 0.5981, f1_score : 0.1885
+precision : 0.1023, recall : 0.5907, f1_score : 0.1744
+precision : 0.1002, recall : 0.5844, f1_score : 0.1710
+precision : 0.1018, recall : 0.5929, f1_score : 0.1737
+precision : 0.0994, recall : 0.5919, f1_score : 0.1702
+
+col : smart_198raw, score_kSplit : 0.1756, score_kTime : 0.1843
+
+precision : 0.1119, recall : 0.5981, f1_score : 0.1885
+precision : 0.1023, recall : 0.5907, f1_score : 0.1744
+precision : 0.1002, recall : 0.5844, f1_score : 0.1710
+precision : 0.1018, recall : 0.5929, f1_score : 0.1737
+precision : 0.0994, recall : 0.5919, f1_score : 0.1702
+
+col : smart_240raw, score_kSplit : 0.1756, score_kTime : 0.1843
+
+precision : 0.1125, recall : 0.5690, f1_score : 0.1879
+precision : 0.1075, recall : 0.5613, f1_score : 0.1804
+precision : 0.0986, recall : 0.5782, f1_score : 0.1684
+precision : 0.1004, recall : 0.5948, f1_score : 0.1719
+precision : 0.1070, recall : 0.5626, f1_score : 0.1798
+
+col : smart_241raw, score_kSplit : 0.1777, score_kTime : 0.1833
+
+precision : 0.1042, recall : 0.5586, f1_score : 0.1756
+precision : 0.0956, recall : 0.5665, f1_score : 0.1636
+precision : 0.0995, recall : 0.5584, f1_score : 0.1689
+precision : 0.1022, recall : 0.5521, f1_score : 0.1724
+precision : 0.1085, recall : 0.5327, f1_score : 0.1803
+
+col : smart_242raw, score_kSplit : 0.1722, score_kTime : 0.1863
+
+
+best score_kSplit : 0.1777, score_kTime : 0.1833
+
+pre_cols :  ['smart_1raw', 'smart_5raw', 'smart_10raw', 'smart_12raw', 'smart_184raw', 'smart_188raw', 'smart_191raw', 'smart_192raw', 'smart_195raw', 'smart_197raw', 'smart_198raw', 'smart_240raw', 'smart_242raw']
+len(cols) :  13
+sepend time :  1001.23800015

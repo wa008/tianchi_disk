@@ -81,22 +81,24 @@ def get_weight_label(df_train, df_test):
     
     df_black = df_train[df_train['label'] == 1]
     df_white = df_train[df_train['label'] == 0]
-    df_white = df_white.sample(n = min(len(df_white), 5 * len(df_black)), random_state = 2020)
+    # df_white = df_white.sample(n = min(len(df_white), 5 * len(df_black)), random_state = 2020)
+    df_white = df_white.sample(frac = 0.5, random_state = 2020)
     df_train = pd.concat([df_white, df_black])
     df_train = df_train.sort_values(by = 'dt')
 
     df_train['temp'] = df_train['dis_day'].apply(lambda x: 0 if x == -1 else 30 - x)
     white_weight = df_train['temp'].sum() * 1.0 / len(df_train[df_train['temp'] == 0])
-    weight = df_train['temp'].apply(lambda x: white_weight if x == 0 else x)
+    df_train['weight'] = df_train['temp'].apply(lambda x: white_weight if x == 0 else x)
+    weight = df_train['weight']
     label = df_train['label']
-    # write_data_csv('df_train_get_weight', df_train)
-    # write_data_csv('df_test_get_weight', df_test)
+    write_data_csv('df_train_get_weight', df_train)
+    write_data_csv('df_test_get_weight', df_test)
     return df_train, df_test, weight, label
 
 def get_weight_label_data(read_rows = int(sys.argv[1])):
-    df_train = read_data_csv('df_train', read_rows)
-    df_test = read_data_csv('df_test', read_rows)
-    weight = df_train['dis_day'].apply(lambda x: 1 if x == -1 else 30 - x)
+    df_train = read_data_csv('df_train_get_weight', read_rows)
+    df_test = read_data_csv('df_test_get_weight', read_rows)
+    weight = df_train['weight']
     label = df_train['label']
     return df_train, df_test, weight, label
 
@@ -105,7 +107,7 @@ def data_process(df_train, df_test, cols, col_ratio = 0.8):
     drop_cols = []
     for col in cols:
         tmp = df_train[col].isna().sum() * 1.0 / len(df_train)
-        if tmp > col_ratio or col[-5 : ] == 'lized':
+        if tmp > col_ratio or col[-3 : ] == 'raw':
             drop_cols.append(col)
     # print 'drop_col_ratio : %.3f, num of drop cols : %d last cols : %d' % (col_ratio, len(drop_cols), len(cols) - len(drop_cols))
     df_train = df_train.drop(drop_cols, axis = 1)
@@ -134,7 +136,7 @@ def train(df_train, weight, label, df_test, cols, is_weight, out_id):
     pred = clf.predict(df_test[cols])
     df_test['pred'] = pred
     df_test = df_test[df_test['pred'] == 1]
-    df_test[['manufacturer', 'model', 'serial_number', 'dt']].to_csv(data_path + 'sub_20200308_' + str(out_id) + '.csv', index = False, header = False)
+    df_test[['manufacturer', 'model', 'serial_number', 'dt']].to_csv(data_path + 'sub_20200314_' + str(out_id) + '.csv', index = False, header = False)
     return df_test
 
 def select_fea(df_train, weight, label, cols, df_test = 0, is_weight = False, out_id = 3):
@@ -144,21 +146,34 @@ def select_fea(df_train, weight, label, cols, df_test = 0, is_weight = False, ou
     # best_score = 10
     # params = {}
     pre_cols = [x for x in cols]
-    for col in cols:
-        temp_cols = [x for x in pre_cols]
-        temp_cols.remove(col)
-        if is_weight == True:
-            score_kSplit = val_kSplit_weight(df_train, weight, label, temp_cols)
-            score_kTime = val_TimeSeriesSplit_weight(df_train, weight, label, temp_cols)
-        else:
-            score_kSplit = val_kSplit(df_train, weight, label, temp_cols)
-            score_kTime = val_TimeSeriesSplit(df_train, weight, label, temp_cols)
-        print 'col : %s, score_kSplit : %.4f, score_kTime : %.4f\n' % (col, score_kSplit, score_kTime)
-        if score_kSplit > best_score_kSplit:
-            best_score_kSplit = score_kSplit
-            best_score_kTime = score_kTime
+    pre_time = time.time()
+    index = 0
+    while True:
+        drop_col = -1
+        index += 1
+        print '\nindex : %d\n' % (index), '-' * 50
+        for col in pre_cols:
+            temp_cols = [x for x in pre_cols]
+            temp_cols.remove(col)
+            if is_weight == True:
+                score_kSplit = val_kSplit_weight(df_train, weight, label, temp_cols)
+                score_kTime = val_TimeSeriesSplit_weight(df_train, weight, label, temp_cols)
+            else:
+                score_kSplit = val_kSplit(df_train, weight, label, temp_cols)
+                score_kTime = val_TimeSeriesSplit(df_train, weight, label, temp_cols)
+            print 'col : %s, score_kSplit : %.4f, score_kTime : %.4f\n' % (col, score_kSplit, score_kTime)
+            if score_kSplit > best_score_kSplit:
+                best_score_kSplit = score_kSplit
+                best_score_kTime = score_kTime
+                drop_col = col
+        print 'index : %d, time : %.2f\n' % (index, time.time() - pre_time), '-' * 50
+        pre_time = time.time()
+        if drop_col != -1:
+            print 'drop_col : %s' % (drop_col)
             pre_cols.remove(col)
-            # df_result = train(df_train, weight, label, df_test, temp_cols)
+        else:
+            break
+                # df_result = train(df_train, weight, label, df_test, temp_cols)
     print '\nbest score_kSplit : %.4f, score_kTime : %.4f\n' % (best_score_kSplit, best_score_kTime)
     train(df_train, weight, label, df_test, cols, is_weight, out_id)
     print 'pre_cols : ', pre_cols
@@ -166,7 +181,7 @@ def select_fea(df_train, weight, label, cols, df_test = 0, is_weight = False, ou
     return pre_cols
 
 def main():
-    pre_time = time.time()
+    begin_time = time.time()
     # take_sample()
     df_train, df_test = read_data()
 
@@ -180,19 +195,40 @@ def main():
     print 'df_train.shape, df_test.shap : ', df_train.shape, df_test.shape
     print 'weight of black %d, white : %d' % (np.sum(weight[df_train['label'] == 1]), np.sum(weight[df_train['label'] == 0]))
     print 'label.unique', Counter(label.tolist())
-    print 'sepend time : ', time.time() - pre_time
+    print 'get_data sepend time : ', time.time() - begin_time
 
     df_train, df_test, cols = data_process(df_train, df_test, cols, col_ratio = 0.9)
+    for col in ['smart_' + str(x) + 'raw' for x in [9, 184, 193] + [4, 5, 10, 12, 187, 188, 189, 192, 193, 197, 198, 199]]:
+        if col in cols:
+            cols.remove(col)
+        else:
+            print 'col : %s', col
 
     print 'result cols : ', cols
     print 'len(cols) : ', len(cols)
+    # train(df_train, weight, label, df_test, cols, is_weight = False, out_id = 'first_baseline')
+    tmp_time = time.time()
+    score_kSplit = val_kSplit(df_train, weight, label, cols)
+    score_kTime = val_TimeSeriesSplit(df_train, weight, label, cols)
+    print 'score_kSplit : %.4f, score_kTime : %.4f, val once sepend time : %.2f\n' % (score_kSplit, score_kTime, time.time() - tmp_time)
 
-    print 'has noweith' + '-' * 50
+    tmp_time = time.time()
+    score_kSplit = val_kSplit_weight(df_train, weight, label, cols)
+    score_kTime = val_TimeSeriesSplit_weight(df_train, weight, label, cols)
+    print 'score_kSplit : %.4f, score_kTime : %.4f, val once sepend time : %.2f\n' % (score_kSplit, score_kTime, time.time() - tmp_time)
+
+    train(df_train, weight, label, df_test, cols, is_weight = False, out_id = 6)
+    train(df_train, weight, label, df_test, cols, is_weight = True, out_id = 7)
+
+    return 
+
+    print 'has no weith' + '-' * 50
     cols = select_fea(df_train, weight, label, cols, df_test, False, 4)
     print 'has weith' + '-' * 50
     cols = select_fea(df_train, weight, label, cols, df_test, True, 5)
 
-    print 'sepend time : ', time.time() - pre_time
+    print 'sepend time : ', time.time() - begin_time
 
 main()
 # main_middle()
+

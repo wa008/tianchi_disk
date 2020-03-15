@@ -1,0 +1,60 @@
+test.py
+data_path : D:\kaggle\data\tianchi_disk\
+data_path : D:\kaggle\data\tianchi_disk\
+201707 (129701, 516)
+201708 (372119, 516)
+201709 (595045, 516)
+201710 (826694, 516)
+201711 (1044560, 516)
+201712 (1282160, 516)
+201801 (1521179, 516)
+201802 (1705737, 516)
+201803 (1877623, 516)
+201804 (2013209, 516)
+201805 (2120657, 516)
+201806 (2192399, 516)
+201807 (2221725, 516)
+df_train.shape, df_test.shap :  (2221725, 516) (178096, 514)
+
+get_weight_label ----------------------------------------------------------------------------------------------------
+dt, fault_time isna :  0 2019750
+df_train.shape, df_test.shap :  (1126637, 522) (178096, 514)
+weight of black 495125, white : 495124
+label.unique Counter({0L: 1095089, 1L: 31548})
+get_data sepend time :  559.119999886
+
+data_process ----------------------------------------------------------------------------------------------------
+col : %s smart_9raw
+col : %s smart_184raw
+col : %s smart_193raw
+col : %s smart_4raw
+col : %s smart_5raw
+col : %s smart_10raw
+col : %s smart_12raw
+col : %s smart_187raw
+col : %s smart_188raw
+col : %s smart_189raw
+col : %s smart_192raw
+col : %s smart_193raw
+col : %s smart_197raw
+col : %s smart_198raw
+col : %s smart_199raw
+result cols :  ['smart_1_normalized', 'smart_3_normalized', 'smart_4_normalized', 'smart_5_normalized', 'smart_7_normalized', 'smart_9_normalized', 'smart_10_normalized', 'smart_12_normalized', 'smart_184_normalized', 'smart_187_normalized', 'smart_188_normalized', 'smart_189_normalized', 'smart_190_normalized', 'smart_191_normalized', 'smart_192_normalized', 'smart_193_normalized', 'smart_194_normalized', 'smart_195_normalized', 'smart_197_normalized', 'smart_198_normalized', 'smart_199_normalized', 'smart_240_normalized', 'smart_241_normalized', 'smart_242_normalized']
+len(cols) :  24
+[LightGBM] [Warning] Unknown parameter categorical_column=
+precision : 0.7765, recall : 0.0303, f1_score : 0.0584
+precision : 0.6384, recall : 0.0229, f1_score : 0.0443
+precision : 0.7809, recall : 0.0319, f1_score : 0.0613
+precision : 0.7956, recall : 0.0285, f1_score : 0.0551
+precision : 0.7261, recall : 0.0263, f1_score : 0.0507
+
+score_kSplit : 0.0539, score_kTime : 0.0194, val once sepend time : 15.82
+
+precision : 0.0691, recall : 0.6004, f1_score : 0.1239
+precision : 0.0640, recall : 0.5950, f1_score : 0.1155
+precision : 0.0593, recall : 0.5932, f1_score : 0.1078
+precision : 0.0641, recall : 0.6050, f1_score : 0.1158
+precision : 0.0617, recall : 0.6039, f1_score : 0.1119
+
+score_kSplit : 0.1150, score_kTime : 0.1368, val once sepend time : 15.81
+
