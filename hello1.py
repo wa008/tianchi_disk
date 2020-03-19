@@ -63,7 +63,7 @@ def read_data():
         df_temp = read_data_csv(data_pre_name + str(day) + '_sample_pn_v2', read_rows)
         df = pd.concat([df, df_temp])
         print day, df.shape
-    df_test = read_data_csv('disk_sample_smart_log_test_a', -1)
+    df_test = read_data_csv('disk_sample_smart_log_test_b', -1)
     return df, df_test
 
 def get_weight_label(df_train, df_test):
@@ -136,7 +136,7 @@ def train(df_train, weight, label, df_test, cols, is_weight, out_id):
     pred = clf.predict(df_test[cols])
     df_test['pred'] = pred
     df_test = df_test[df_test['pred'] == 1]
-    df_test[['manufacturer', 'model', 'serial_number', 'dt']].to_csv(data_path + 'sub_20200314_' + str(out_id) + '.csv', index = False, header = False)
+    df_test[['manufacturer', 'model', 'serial_number', 'dt']].to_csv(data_path + 'sub_20200318_' + str(out_id) + '.csv', index = False, header = False)
     return df_test
 
 def select_fea(df_train, weight, label, cols, df_test = 0, is_weight = False, out_id = 3):
@@ -217,15 +217,13 @@ def main():
     score_kTime = val_TimeSeriesSplit_weight(df_train, weight, label, cols)
     print 'score_kSplit : %.4f, score_kTime : %.4f, val once sepend time : %.2f\n' % (score_kSplit, score_kTime, time.time() - tmp_time)
 
-    train(df_train, weight, label, df_test, cols, is_weight = False, out_id = 6)
-    train(df_train, weight, label, df_test, cols, is_weight = True, out_id = 7)
-
-    return 
+    train(df_train, weight, label, df_test, cols, is_weight = False, out_id = 1)
+    train(df_train, weight, label, df_test, cols, is_weight = True, out_id = 2)
 
     print 'has no weith' + '-' * 50
-    cols = select_fea(df_train, weight, label, cols, df_test, False, 4)
+    cols = select_fea(df_train, weight, label, cols, df_test, False, 3)
     print 'has weith' + '-' * 50
-    cols = select_fea(df_train, weight, label, cols, df_test, True, 5)
+    cols = select_fea(df_train, weight, label, cols, df_test, True, 4)
 
     print 'sepend time : ', time.time() - begin_time
 
